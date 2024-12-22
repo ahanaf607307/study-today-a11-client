@@ -4,7 +4,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 
 function Login() {
-  const { loginUser, setUser , googleLoginUser } = useContext(AuthContext);
+  const { loginUser, setUser ,setLoading, googleLoginUser } = useContext(AuthContext);
   const navigate = useNavigate()
   
 
@@ -19,6 +19,7 @@ function Login() {
         const user = res.user
         console.log('login user done -> ',user)
         setUser(res.user);
+        setLoading(true)
           navigate('/')
       })
       .catch((error) => {
@@ -32,6 +33,7 @@ const handleGoogleLogin = () => {
     googleLoginUser()
     .then((result) => {
       setUser(result.user);
+      setLoading(true)
       navigate('/')
       console.log('google logged in user is --> ',result.user)
      

@@ -9,9 +9,8 @@ function PrivateRoute({children}) {
   const location = useLocation()
  
 if(loading) {
-  return (
-    <h1 className='text-5xl text-red-500 text-center flex flex-col justify-center items-center'>Loading....</h1>
-  )
+  return <h1 className='text-5xl text-red-500 text-center flex flex-col justify-center items-center'>Loading....</h1>
+  
 }
 if(user) {
   return children

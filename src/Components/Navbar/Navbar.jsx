@@ -1,6 +1,8 @@
-import React, { useContext } from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import { AuthContext } from '../../Context/AuthProvider'
+import React, { useContext } from 'react';
+import { FaUserTimes } from "react-icons/fa";
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
+
 
 function Navbar() {
     const {user , logOutUser} = useContext(AuthContext)
@@ -33,18 +35,20 @@ function Navbar() {
     <div className="dropdown dropdown-end">
     <div className="tooltip tooltip-left" data-tip={user?.displayName}>
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full" >
-          <img
-            alt="profile picture"
-            src={user?.photoURL} />
-        </div>
+       {
+        user ?  <div className="w-10 rounded-full" >
+        <img
+          alt="profile picture"
+          src={user?.photoURL} />
+      </div> : <FaUserTimes className='w-12'/>
+       }
       </div>
 </div>
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li><NavLink to='/createAssignments'>Create Assignments</NavLink></li>
-        <li><NavLink to='/myAttempted'>My Attempted  </NavLink></li>
+        <li>{user?<NavLink to={`createAssignments`}>Create Assignments </NavLink>:''}</li>
+        <li>{user?<NavLink to='/pendingAssignments'>Pending Assignments </NavLink> : ''}</li>
         <li><button onClick={() =>logOutUser()}>Logout</button></li>
       </ul>
     </div>
