@@ -48,7 +48,7 @@ function Navbar() {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
         <li>{user?<NavLink to={`createAssignments`}>Create Assignments </NavLink>:''}</li>
-        <li>{user?<NavLink to='/pendingAssignments'>Pending Assignments </NavLink> : ''}</li>
+        <li>{user?<NavLink to='/myAttempted'>My Attempted </NavLink> : ''}</li>
         <li><button onClick={() =>logOutUser()}>Logout</button></li>
       </ul>
     </div>

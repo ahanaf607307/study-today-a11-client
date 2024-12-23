@@ -10,6 +10,7 @@ import Assignment from "../Pages/Assignment";
 import CreateAssignments from "../Pages/CreateAssignments";
 import MyAttempted from "../Pages/MyAttempted";
 import PendingAssignments from "../Pages/PendingAssignments";
+import UpdateAssignment from "../Pages/UpdateAssignment";
 
 const routes = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const routes = createBrowserRouter([
       {
         path: "/myAttempted",
         element: <MyAttempted />,
+      },
+      {
+        path: "/updateAssignment/:id",
+        element: <UpdateAssignment />,
       },
     ],
   },
