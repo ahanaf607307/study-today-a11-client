@@ -20,9 +20,7 @@ function Register() {
             const updateUserData = {displayName:name , photoURL:photoUrl}
             updateUserProfile(updateUserData)
             .then(res => {
-                setUser({
-                    ...res.user
-                })
+                setUser(res.user)
             })
             .catch(error => {
                 console.log('error from update profile -->' , error)

@@ -9,7 +9,10 @@ export default {
     extend: {
      fontFamily : {
       cardFont: "Finlandica",
-     }
+     },
+     backgroundImage: {
+      'pendingBg': "url('/src/assets/pendingBg.png')",
+    }
     },
   },
   plugins: [daisyui],

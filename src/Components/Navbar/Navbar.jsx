@@ -49,7 +49,14 @@ function Navbar() {
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
         <li>{user?<NavLink to={`createAssignments`}>Create Assignments </NavLink>:''}</li>
         <li>{user?<NavLink to='/myAttempted'>My Attempted </NavLink> : ''}</li>
-        <li><button onClick={() =>logOutUser()}>Logout</button></li>
+        <li>
+          
+       { user? <button onClick={() =>logOutUser()}>Logout</button> : <div className='flex gap-x-3'>
+                    <Link className='border  px-3 py-1 rounded-xl font-semibold' to='/login'>Login</Link>
+                    <Link to='/register' className='border  px-3 py-1 rounded-xl font-semibold'>Register</Link>
+                </div>
+            }
+        </li>
       </ul>
     </div>
 

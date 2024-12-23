@@ -52,10 +52,12 @@ function AssignCard({card , handleDelete}) {
               <h1 className="text-2xl font-semibold mt-5">{title}</h1>
             </div>
             <section className="flex items-center justify-between ">
+              <Link to={`/assignmentDetails/${_id}`}>
               <button className="btn bg-transparent text-md">
                 {" "}
                 view assignment
               </button>
+              </Link>
             <Link to={`/updateAssignment/${_id}`}>
             <button className="btn bg-transparent text-xl">
                 <BiSolidEdit />

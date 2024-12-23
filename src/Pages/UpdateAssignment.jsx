@@ -10,10 +10,11 @@ function UpdateAssignment() {
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
   const {id} = useParams()
-  const [oldData, setOldData] = useState([]);
-  console.log("form update - ", oldData);
 
-  //   load old data form old api
+
+   //   load old data form old api
+  const [oldData, setOldData] = useState([]);
+ console.log(oldData.userEmail)
   useEffect(() => {
     oldDataForUpdate();
   }, []);
@@ -44,6 +45,19 @@ function UpdateAssignment() {
       userName,
     };
     console.log(assignmentData);
+
+    // Another User Can't Update Another User Data
+       const errorTost = () => {
+            Swal.fire({
+              title: " You can Update Only Your Created Assignment",
+              icon: "error",
+            });
+          };
+    if(user.email !== oldData.userEmail) {
+        return errorTost()
+    }
+    
+    
 
     axios.patch(`${import.meta.env.VITE_API}/assignments/${id}` , assignmentData)
     .then(result => {

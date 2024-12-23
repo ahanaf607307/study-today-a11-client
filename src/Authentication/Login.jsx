@@ -18,7 +18,7 @@ function Login() {
       .then((res) => {
         const user = res.user
         console.log('login user done -> ',user)
-        setUser(res.user);
+        setUser(user);
         setLoading(true)
           navigate('/')
       })
