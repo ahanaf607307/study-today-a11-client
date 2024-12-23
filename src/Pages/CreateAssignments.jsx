@@ -96,7 +96,7 @@ const selectValue = form.selectValue.value
           <span className="label-text">Thumbnail Image URL</span>
         </div>
         <input
-          type="text"
+          type="url"
           name="imageUrl"
           placeholder="Thumbnail Image URL"
           className="input input-bordered w-full  "

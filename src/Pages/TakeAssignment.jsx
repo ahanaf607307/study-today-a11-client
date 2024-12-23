@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { AuthContext } from '../Context/AuthProvider';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../Context/AuthProvider';
 
 function TakeAssignment() {
 const {id} = useParams()
@@ -15,8 +15,9 @@ console.log(id)
         const quickNote = form.quickNote.value
         const assignmentId = id
         const userEmail = user.email
+        const status = 'pending'
         console.log(assignmentId)
-        const takeAssignmentData = {googleDocs , quickNote ,userEmail, assignmentId }
+        const takeAssignmentData = {googleDocs , quickNote ,userEmail, assignmentId , status}
         console.log(takeAssignmentData)
         axios.post(`${import.meta.env.VITE_API}/takeAssignment` , takeAssignmentData)
         .then(result => {
@@ -49,7 +50,7 @@ console.log(id)
           </label>
           <textarea type="text" name='quickNote' placeholder="Quick Note"  className="input input-bordered" required />
         </div>
-        <input type="submit" className='btn w-full my-7 bg-orange-600 text-white' value="Take Assignment" />
+        <input type="submit" className='btn w-full my-7 bg-orange-600 text-white' value="Submit" />
       </form >
     </div>
   )

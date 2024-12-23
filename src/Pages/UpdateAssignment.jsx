@@ -122,10 +122,10 @@ function UpdateAssignment() {
               <span className="label-text">Thumbnail Image URL</span>
             </div>
             <input
-              type="text"
+              type="url"
               name="imageUrl"
               defaultValue={oldData.imageUrl}
-              className="input input-bordered w-full  "
+              className="input input-bordered w-full "
             />
           </label>
           <label className="form-control w-full  ">

@@ -37,7 +37,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/myAttempted",
-        element: <MyAttempted />,
+        element: <PrivateRoute><MyAttempted /></PrivateRoute>,
       },
       {
         path: "/updateAssignment/:id",
