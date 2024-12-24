@@ -13,6 +13,7 @@ import MyAttempted from "../Pages/MyAttempted";
 import PendingAssignments from "../Pages/PendingAssignments";
 import TakeAssignment from "../Pages/TakeAssignment";
 import UpdateAssignment from "../Pages/UpdateAssignment";
+import GiveMark from "../Pages/GiveMark";
 
 const routes = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/createAssignments",
-        element: <CreateAssignments />,
+        element:<PrivateRoute> <CreateAssignments /> </PrivateRoute>,
       },
       {
         path: "/myAttempted",
@@ -50,6 +51,10 @@ const routes = createBrowserRouter([
       {
         path: "/takeAssignment/:id",
         element: <PrivateRoute><TakeAssignment /></PrivateRoute>,
+      },
+      {
+        path: "/giveMark/:id",
+        element: <PrivateRoute><GiveMark /></PrivateRoute>,
       },
     ],
   },

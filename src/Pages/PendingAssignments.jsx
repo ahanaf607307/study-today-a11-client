@@ -1,18 +1,70 @@
-import React from 'react'
-
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider";
 function PendingAssignments() {
+  const { user } = useContext(AuthContext);
+
+  const [myAttempted, setMyAttemped] = useState([]);
+
+  console.log(myAttempted);
+  useEffect(() => {
+    fetchAttemptedData();
+    const pendingData = myAttempted.filter(item => item.status='pending')
+    console.log(pendingData)
+    setMyAttemped(pendingData)
+  }, []);
+
+  const fetchAttemptedData = async () => {
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_API}/allAssignment`
+    );
+    setMyAttemped(data);
+  };
   return (
-    <div className='mt-6 mb-14  h-96 w-full bg-no-repeat bg-center  bg-cover bg-pendingBg bg-blend-darken rounded-2xl'>
+    <div className="w-full ">
+      <div className='mt-6 mb-14  h-64 w-full bg-no-repeat bg-center  bg-cover bg-pendingBg bg-blend-darken rounded-2xl'>
     <div className=' bg-black/60 w-full h-full flex flex-col justify-center items-center rounded-2xl'>
     <h1 className='text-5xl text-center font-bold text-orange-500'>  PENDING ASSIGNMENT
     </h1>
     <h1 className='text-xl text-center font-bold text-white/80 mt-5'> We will give you many benefits when using online learning
     </h1>
     </div>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus asperiores doloribus, nihil incidunt eius ipsa porro molestiae illum vel error cum quasi harum mollitia id, aspernatur at odio eum est? Commodi, distinctio! Id vel dignissimos dolore? Exercitationem, veritatis? Et ad rem id similique earum voluptas eius facilis illum vitae itaque veritatis neque, consequatur minus unde magnam. Perferendis magnam qui, nemo cum dignissimos incidunt tenetur iure commodi non deleniti assumenda consequuntur molestias esse, reprehenderit ad! Repellat nisi neque labore qui aliquam dicta quos, eius aspernatur delectus odit repellendus error quas tenetur vel expedita natus cumque, aliquid ratione provident obcaecati sint! Eius, ipsam dolor. Unde dolorem, sit architecto laboriosam sint ut facere doloribus illo est et repudiandae velit in, neque placeat delectus quis aperiam eius ullam? Molestias illum, eveniet iure iusto eos aperiam maiores inventore voluptatibus deleniti nisi omnis tenetur numquam quaerat hic, dolorum repudiandae. Aut labore maiores adipisci, doloribus officiis minima saepe consequuntur error commodi. Ipsum sed nemo facere delectus tempora, vero quasi quam vitae repellat placeat ratione adipisci accusantium minus id omnis debitis, totam eius temporibus labore! Recusandae ipsa sapiente laboriosam quisquam quod architecto dolor doloribus quibusdam cumque, temporibus odio nihil ipsam aliquam, odit culpa at et quas quo sed consequatur repudiandae sunt pariatur facilis cupiditate? Ex, provident laudantium, aperiam laborum consequatur labore nihil molestias perspiciatis maxime eum quo dolores corrupti, nesciunt veniam consequuntur. Odio dolor reprehenderit ut facilis amet! Incidunt aut tenetur facere veritatis eaque odit accusantium, quia vel sint maxime possimus odio provident natus aperiam officia, fuga, minima fugiat blanditiis autem atque! Ab facere architecto, officia molestiae fugit voluptates culpa obcaecati quis quos atque autem illo libero vel unde tempore labore ad quidem debitis impedit perspiciatis corporis quod a veniam! Mollitia commodi voluptatem, neque odio delectus dicta ad eos esse libero, illum inventore nisi quibusdam distinctio amet beatae accusantium! Necessitatibus ex quis qui cupiditate nulla esse libero sequi. Enim quas tenetur quod, delectus tempore totam consectetur sit vitae amet iure ex. Aliquam aliquid veritatis suscipit temporibus nisi aspernatur culpa velit voluptatem nobis at rem laborum assumenda, impedit eveniet! Necessitatibus odio tempora autem asperiores eligendi blanditiis, iste recusandae repellat illo sed aspernatur laudantium, voluptatem ullam non, adipisci accusamus dolore minima error est quo possimus ipsum excepturi? Incidunt vero sequi dolore ab asperiores eius veritatis distinctio, quibusdam laborum voluptatibus? Veritatis sapiente sint quia ullam delectus est non minus unde eius, distinctio odio, repellendus ducimus dicta, nisi cupiditate! Rem id illo, nihil aspernatur quasi perspiciatis expedita minus harum ratione, consectetur eum aut architecto incidunt suscipit officiis minima. Ipsum, laborum sint! Aperiam placeat facere eaque porro sapiente cumque quisquam autem minus ipsam nemo distinctio molestias optio numquam sequi, aliquid, maiores at, quae aspernatur beatae dolor doloremque voluptas iure exercitationem. Quasi repellendus sit minus! Possimus deserunt asperiores consectetur nobis autem quae amet id iure aspernatur tempora quas incidunt, nesciunt, consequuntur sint beatae. Officia vitae, quo commodi et dolorem assumenda. Delectus accusantium tempora nulla neque sit maxime omnis eligendi, at quae illo enim voluptatem fuga eius placeat blanditiis incidunt officia nostrum quia debitis corrupti.
-      </div>
      </div>
+     <div className="w-full my-14">
+
+<h1 className="text-3xl my-10 text-orange-600 font-cardFont font-bold text-center">
+  {myAttempted?.length} Attempted By - {user?.displayName}{" "}
+</h1>
+<section>
+  <div className="overflow-x-auto">
+    <table className="table">
+      {/* head */}
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Assignment Marks</th>
+          <th>Examinee Name</th>
+          <th>Feedback</th>
+        </tr>
+      </thead>
+      <tbody>
+        {myAttempted.map((attempt, index) => (
+          <tr key={index}>
+            <th>{index + 1}</th>
+            <td>{attempt?.title ?? "N/A"}</td>
+            <td>{attempt?.marks ?? "N/A"}</td>
+            <td>{attempt?.submiterName ?? "N/A"}</td>
+            <td><Link to={`/giveMark/${attempt?._id}`} className="btn bg-orange-600 font-bold font-cardFont text-white/90">Give Mark</Link></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
+</div>
+    </div>
   )
 }
 

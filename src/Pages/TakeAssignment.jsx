@@ -14,10 +14,13 @@ console.log(id)
         const googleDocs = form.googleDocs.value;
         const quickNote = form.quickNote.value
         const assignmentId = id
-        const userEmail = user.email
+        const submitedBy = user.email
+        const submiterName = user.displayName
         const status = 'pending'
+        const obtainedMarks = ''
+        const feedback = ''
         console.log(assignmentId)
-        const takeAssignmentData = {googleDocs , quickNote ,userEmail, assignmentId , status}
+        const takeAssignmentData = {googleDocs , quickNote ,submitedBy, assignmentId , status , submiterName , obtainedMarks ,feedback }
         console.log(takeAssignmentData)
         axios.post(`${import.meta.env.VITE_API}/takeAssignment` , takeAssignmentData)
         .then(result => {

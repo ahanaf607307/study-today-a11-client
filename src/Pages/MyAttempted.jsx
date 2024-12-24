@@ -18,8 +18,7 @@ function MyAttempted() {
     setMyAttemped(data);
   };
   return (
-    <div>
-
+    <div className="w-full">
       <h1 className="text-3xl my-10 text-orange-600 font-cardFont font-bold text-center">
         {myAttempted?.length} Attempted By - {user?.displayName}{" "}
       </h1>
@@ -42,10 +41,20 @@ function MyAttempted() {
                 <tr key={index}>
                   <th>{index + 1}</th>
                   <td>{attempt?.title ?? "N/A"}</td>
-                  <td>{attempt?.status ?? "N/A"}</td>
+                  <td
+                    className={`${
+                      attempt?.status === "pending"
+                        ? "text-red-500"
+                        : "text-green-500"
+                    }`}
+                  >
+                    {attempt?.status ?? "N/A"}
+                  </td>
                   <td>{attempt?.marks ?? "N/A"}</td>
-                  <td>{attempt?.obtainedMarks ?? "N/A"}</td>
-                  <td>{attempt?.feedback ?? "N/A"}</td>
+                  <td>
+                    {attempt?.obtainedMarks ? attempt?.obtainedMarks : "N/A"}
+                  </td>
+                  <td>{attempt?.feedback ? attempt?.feedback : "N/A"}</td>
                 </tr>
               ))}
             </tbody>
