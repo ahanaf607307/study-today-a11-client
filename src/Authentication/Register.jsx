@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { AuthContext } from '../Context/AuthProvider'
-import Swal from 'sweetalert2'
-import lottieLogin from '../assets/login.json';
 import Lottie from 'lottie-react';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import lottieLogin from '../assets/login.json';
+import { AuthContext } from '../Context/AuthProvider';
 
 function Register() {
 
@@ -55,7 +55,7 @@ function Register() {
            
         })
         .catch(error => {
-            console.log(error.message)
+          setErrorInvalid(error.message)
         })
     }
 
