@@ -23,7 +23,7 @@ const fetchDetailsData = async() => {
 
   
   return (
-    <div className='w-8/12 mx-auto '>
+    <div className='w-[600px] mx-auto '>
       <h1 className='text-4xl text-orange-600 text-center font-bold font-cardFont my-7'>Assignment's Details</h1>
 <div className='border shadow-xl rounded-2xl my-10 p-5'>
     <div className='w-full  h-[400px]'>

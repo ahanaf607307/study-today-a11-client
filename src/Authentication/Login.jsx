@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { IoLogoGoogleplus } from "react-icons/io";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthProvider";
 
 function Login() {
-  const { loginUser, setUser ,setLoading, googleLoginUser } = useContext(AuthContext);
+  const { loginUser, setUser ,setLoading, googleLoginUser , errorInvalid, setErrorInvalid } = useContext(AuthContext);
   const navigate = useNavigate()
-  
+  const location = useLocation()
 
   // form submit
   const handleLogin = (e) => {
@@ -14,16 +15,32 @@ function Login() {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
+    setErrorInvalid('');
+    if (password.length < 6) {
+      setErrorInvalid("Password at least 6 carecter");
+      return;
+    }
+
+
     loginUser(email, password)
       .then((res) => {
         const user = res.user
-        console.log('login user done -> ',user)
         setUser(user);
         setLoading(true)
-          navigate('/')
+        Swal.fire({
+          title: "Login Successfully",
+          text: "Click Ok to Continue",
+          icon: "success",
+        });
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
-        console.log(error.message);
+        Swal.fire({
+          title: "Invalid Email or Password",
+          text: "Please Check Your Email And Password",
+          icon: "error",
+        });
+        setErrorInvalid(error.message);
       });
   };
 
@@ -34,16 +51,32 @@ const handleGoogleLogin = () => {
     .then((result) => {
       setUser(result.user);
       setLoading(true)
-      navigate('/')
-      console.log('google logged in user is --> ',result.user)
+      Swal.fire({
+        title: "Login Successfully",
+        text: "Click Ok to Continue",
+        icon: "success",
+      });
+      navigate(location?.state ? location.state : "/");
      
     })
     .catch((error) => {
-
-    console.log(error.message);
-     
+      setErrorInvalid(error.message);
+      faildLoginAlert();
     });
 }
+
+
+
+const faildLoginAlert = () => {
+  Swal.fire({
+    position: "top-end",
+    icon: "error",
+    title: "Please Check Your Email And Password",
+    showConfirmButton: false,
+    timer: 1500,
+  });
+};
+
   return (
     <div className="border-2 rounded-xl shadow-2xl md:w-[500px] my-10 md:my-32 mx-auto p-4 m-2 md:p-10 bg-[#A59D84]">
       <h1 className="text-center font-semibold my-5 text-3xl">
@@ -80,9 +113,7 @@ const handleGoogleLogin = () => {
           className="btn text-white w-full bg-[#c4a174] mt-8"
         />
       </form>
-      <h1 className="my-3 text-red-600 mx-auto text-lg">
-        error message set here
-      </h1>
+      <h1 className="my-3 text-red-600 mx-auto text-lg">{errorInvalid} </h1>
       <button onClick={handleGoogleLogin} className="btn mt-5  bg-[#c4a174]">
         <IoLogoGoogleplus className="text-[#f5da3f] text-xl" /> Login With
         Google

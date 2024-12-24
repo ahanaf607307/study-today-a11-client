@@ -1,14 +1,14 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Context/AuthProvider";
 
 function GiveMark() {
   const { id } = useParams();
-  console.log("give mark id", id);
-  const [oldData, setOldData] = useState([]);
 
-  console.log("this is form givemark ", oldData);
+const {user} = useContext(AuthContext)
+  const [oldData, setOldData] = useState([]);
   useEffect(() => {
     fetchData();
   }, []);
@@ -20,9 +20,16 @@ function GiveMark() {
     console.log(data , 'hi ashim')
     setOldData(data);
   };
+    console.log(oldData.submitedBy , 'yyyyyyyyyyyyyyyyyyyyyyy')
+
+
 
   const handleGiveMark = (e) => {
-    e.preventDefault();
+ e.preventDefault();
+if(user.email === oldData.submitedBy) {
+    return  errorTost()
+}
+
     const form = e.target;
     const giveMarks = form.giveMarks.value;
     const feedback = form.feedback.value;
@@ -46,12 +53,8 @@ function GiveMark() {
       .put(`${import.meta.env.VITE_API}/updateFeedback/${id}`, allFeedBack)
       .then((result) => {
         console.log(result.data);
-        if (result.data.insertedId) {
-          Swal.fire({
-            title: "Feedback Giving Successfull ",
-            icon: "success",
-            draggable: true,
-          });
+        if (result.data.modifiedCount > 0) {
+            successTost()
         }
       })
       .catch((error) => {
@@ -59,6 +62,20 @@ function GiveMark() {
       });
   };
 
+  const errorTost = () => {
+    Swal.fire({
+        title: "Can't Give Mark's and Feedback",
+        text: "Owner Can't Give Feedback & Mark's",
+        icon: "error"
+      });
+  }
+  const successTost = () => {
+    Swal.fire({
+        title: "Mark's & Feedback Giving Successfull",
+        text: "Thank You Sir ! ",
+        icon: "success"
+      });
+  }
 
   return (
     <div className="flex flex-col justify-center items-center ">
@@ -75,6 +92,7 @@ function GiveMark() {
               type="number"
               name="giveMarks"
               placeholder="Give Marks"
+              required
               className="input input-bordered w-full  "
             />
           </label>
@@ -86,6 +104,7 @@ function GiveMark() {
               type="text"
               name="feedback"
               placeholder="Write Your Feedback Here "
+              required
               className="input input-bordered w-full  "
             />
           </label>

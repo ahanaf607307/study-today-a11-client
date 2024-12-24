@@ -19,9 +19,8 @@ console.log(id)
         const status = 'pending'
         const obtainedMarks = ''
         const feedback = ''
-        console.log(assignmentId)
+  
         const takeAssignmentData = {googleDocs , quickNote ,submitedBy, assignmentId , status , submiterName , obtainedMarks ,feedback }
-        console.log(takeAssignmentData)
         axios.post(`${import.meta.env.VITE_API}/takeAssignment` , takeAssignmentData)
         .then(result => {
             console.log(result.data)

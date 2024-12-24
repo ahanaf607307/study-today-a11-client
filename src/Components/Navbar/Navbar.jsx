@@ -28,7 +28,7 @@ function Navbar() {
             <NavLink to="/">Home </NavLink>
           </li>
           <li>
-            {user ? <NavLink to={`assignment`}>Assignments </NavLink> : ""}
+            <NavLink to={`assignment`}>Assignments </NavLink> 
           </li>
           <li>
             {user ? (
@@ -84,7 +84,7 @@ function Navbar() {
             >
               {user ? (
                 <div className="w-10 rounded-full">
-                  <img alt="profile picture" src={user?.photoURL} />
+                  <img referrerPolicy="no-referrer" alt="profile picture" src={user?.photoURL} />
                 </div>
               ) : (
                 <FaUserTimes className="w-12" />
@@ -155,7 +155,7 @@ function Navbar() {
               <NavLink to="/">Home </NavLink>
             </li>
             <li>
-              {user ? <NavLink to={`assignment`}>Assignments </NavLink> : ""}
+             <NavLink to={`assignment`}>Assignments </NavLink> 
             </li>
             <li>
               {user ? (

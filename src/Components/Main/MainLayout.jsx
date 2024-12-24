@@ -11,7 +11,7 @@ function MainLayout() {
         <Navbar />
       </div>
       {/* Outlet starts */}
-      <div className="flex-1  lg:max-w-[1400px] mx-auto">
+      <div className="flex-1  ">
         <Outlet />
       </div>
 

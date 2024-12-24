@@ -4,19 +4,20 @@ import Login from "../Authentication/Login";
 
 import PrivateRoute from "../Authentication/PrivateRoute";
 import Register from "../Authentication/Register";
+import ErrorElement from "../Components/Error/ErrorElement";
 import Home from "../Components/Home/Home";
 import MainLayout from "../Components/Main/MainLayout";
 import Assignment from "../Pages/Assignment";
 import AssignmentDetails from "../Pages/AssignmentDetails";
 import CreateAssignments from "../Pages/CreateAssignments";
+import GiveMark from "../Pages/GiveMark";
 import MyAttempted from "../Pages/MyAttempted";
 import PendingAssignments from "../Pages/PendingAssignments";
 import TakeAssignment from "../Pages/TakeAssignment";
 import UpdateAssignment from "../Pages/UpdateAssignment";
-import GiveMark from "../Pages/GiveMark";
 
 const routes = createBrowserRouter([
-  {
+  { errorElement: <ErrorElement/>,
     path: "/",
     element: <MainLayout />,
     children: [
@@ -42,11 +43,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/updateAssignment/:id",
-        element: <UpdateAssignment />,
+        element: <UpdateAssignment /> ,
       },
       {
         path: "/assignmentDetails/:id",
-        element: <PrivateRoute><AssignmentDetails /></PrivateRoute>,
+        element: <AssignmentDetails />,
       },
       {
         path: "/takeAssignment/:id",

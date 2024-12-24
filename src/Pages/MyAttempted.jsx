@@ -43,8 +43,8 @@ function MyAttempted() {
                   <td
                     className={`${
                       attempt?.status === "pending"
-                        ? "text-red-500"
-                        : "text-green-500"
+                        ? "text-red-500 font-bold text-md"
+                        : "text-green-500 font-bold text-md"
                     }`}
                   >
                     {attempt?.status ?? "N/A"}

@@ -24,7 +24,16 @@ function UpdateAssignment() {
   };
 
   const handleAssignmentSubmit = (e) => {
+    const errorTost = () => {
+      Swal.fire({
+        title: " You can Update Only Your Created Assignment",
+        icon: "error",
+      });
+    };
     e.preventDefault();
+    if(!user?.email) {
+      return errorTost()
+    }
     const userEmail = user.email;
     const userName = user.displayName;
     const form = e.target;
@@ -47,12 +56,7 @@ function UpdateAssignment() {
     console.log(assignmentData);
 
     // Another User Can't Update Another User Data
-       const errorTost = () => {
-            Swal.fire({
-              title: " You can Update Only Your Created Assignment",
-              icon: "error",
-            });
-          };
+       
     if(user.email !== oldData.userEmail) {
         return errorTost()
     }
@@ -133,9 +137,9 @@ function UpdateAssignment() {
               <span className="label-text">Assignment Difficulty Level</span>
             </div>
             <select name="selectValue" defaultValue={oldData.selectValue} className="border px-3 py-3 rounded-xl">
-              <option>Select One</option>
-              <option value="Easy"> Easy </option>
-              <option value="Medium"> Medium </option>
+              <option >Select One</option>
+              <option value="Easy" > Easy </option>
+              {/* <option value="Medium" selected={oldData.selectValue== }> Medium </option> */}
               <option value="Hard"> Hard </option>
             </select>
           </label>
