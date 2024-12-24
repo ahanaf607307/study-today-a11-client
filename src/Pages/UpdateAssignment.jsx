@@ -9,17 +9,43 @@ import { AuthContext } from "../Context/AuthProvider";
 function UpdateAssignment() {
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
-  const {id} = useParams()
-
-
-   //   load old data form old api
+  const { id } = useParams();
   const [oldData, setOldData] = useState([]);
- console.log(oldData.userEmail)
+  const [selectedValue, setSelectedValue] = useState(
+    oldData?.selectValue || ""
+  );
+
+
+  useEffect(() => {
+    oldDataForUpdate();
+  }, []);
+  
+  useEffect(() => {
+    if (oldData?.deadline) {
+      setStartDate(new Date(oldData.deadline));
+    }
+  }, [oldData]);
+
+  
+  useEffect(() => {
+    oldDataForUpdate();
+  }, []);
+
+  useEffect(() => {
+    if (oldData?.selectValue) {
+      setSelectedValue(oldData.selectValue);
+    }
+  }, [oldData]);
+
+  //   load old data form old api
+
   useEffect(() => {
     oldDataForUpdate();
   }, []);
   const oldDataForUpdate = async () => {
-    const { data } = await axios.get(`${import.meta.env.VITE_API}/update/${id}`);
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_API}/update/${id}`
+    );
     setOldData(data);
   };
 
@@ -31,8 +57,12 @@ function UpdateAssignment() {
       });
     };
     e.preventDefault();
-    if(!user?.email) {
-      return errorTost()
+// if user not logged in he can't update data 
+    if (!user?.email) {
+      return Swal.fire({
+        title: " Please Login Your Account",
+        icon: "error",
+      });
     }
     const userEmail = user.email;
     const userName = user.displayName;
@@ -56,27 +86,30 @@ function UpdateAssignment() {
     console.log(assignmentData);
 
     // Another User Can't Update Another User Data
-       
-    if(user.email !== oldData.userEmail) {
-        return errorTost()
-    }
-    
-    
 
-    axios.patch(`${import.meta.env.VITE_API}/assignments/${id}` , assignmentData)
-    .then(result => {
-        console.log(result.data)
+    if (user.email !== oldData.userEmail) {
+      return errorTost();
+    }
+
+    axios
+      .patch(`${import.meta.env.VITE_API}/assignments/${id}`, assignmentData)
+      .then((result) => {
+        console.log(result.data);
         if (result.data.modifiedCount > 0) {
-            Swal.fire({
-              title: "Successfully Updated!",
-              text: "Do you want to continue",
-              icon: "success",
-            });
-          }
-    })
-    .catch(err => {
-        console.log('error from patch api update route -=> ' , err)
-    })
+          Swal.fire({
+            title: "Successfully Updated!",
+            text: "Do you want to continue",
+            icon: "success",
+          });
+        }
+      })
+      .catch((err) => {
+        console.log("error from patch api update route -=> ", err);
+      });
+  };
+
+  const handleChange = (e) => {
+    setSelectedValue(e.target.value);
   };
 
   return (
@@ -104,7 +137,6 @@ function UpdateAssignment() {
             <textarea
               type="text"
               name="description"
-           
               defaultValue={oldData.description}
               className="input input-bordered w-full  "
             />
@@ -136,11 +168,18 @@ function UpdateAssignment() {
             <div className="label">
               <span className="label-text">Assignment Difficulty Level</span>
             </div>
-            <select name="selectValue" defaultValue={oldData.selectValue} className="border px-3 py-3 rounded-xl">
-              <option >Select One</option>
-              <option value="Easy" > Easy </option>
-              {/* <option value="Medium" selected={oldData.selectValue== }> Medium </option> */}
-              <option value="Hard"> Hard </option>
+            <select
+              name="selectValue"
+              value={selectedValue}
+              onChange={handleChange}
+              className="border px-3 py-3 rounded-xl"
+            >
+              <option value="" disabled>
+                Select One
+              </option>
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
             </select>
           </label>
 
@@ -149,16 +188,16 @@ function UpdateAssignment() {
               <span className="label-text">Date</span>
             </div>
             <DatePicker
-              className="border px-3 py-3 rounded-xl w-full cursor-pointer"
-              selected={startDate}
-              defaultValue={oldData.deadline} 
-              onChange={(date) => setStartDate(date)}
-            />
+  className="border px-3 py-3 rounded-xl w-full cursor-pointer"
+  selected={startDate}
+  onChange={(date) => setStartDate(date)}
+/>
+
           </label>
           <input
             type="submit"
             className="btn bg-[#a3a384] w-full my-5"
-            value="Create Assignment"
+            value="Update"
           />
         </form>
       </div>
