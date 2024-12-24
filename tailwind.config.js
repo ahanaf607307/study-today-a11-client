@@ -13,6 +13,8 @@ export default {
      },
      backgroundImage: {
       'pendingBg': "url('/src/assets/pendingBg.png')",
+      'bannerBg': "url('/src/assets/banner.png')",
+      'assignmentBg': "url('/src/assets/assignmentBg.png')",
     }
     },
   },

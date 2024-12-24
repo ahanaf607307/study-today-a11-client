@@ -93,7 +93,7 @@ function CreateAssignments() {
               <span className="label-text">Mark's</span>
             </div>
             <input
-              type="text"
+              type="number"
               name="marks"
               placeholder="Mark's"
               className="input input-bordered w-full  "

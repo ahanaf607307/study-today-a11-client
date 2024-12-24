@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 function PendingAssignments() {
-  const { user } = useContext(AuthContext);
+  const { user , setLoading } = useContext(AuthContext);
 
   const [myAttempted, setMyAttemped] = useState([]);
 
@@ -20,14 +20,15 @@ function PendingAssignments() {
       `${import.meta.env.VITE_API}/allAssignment`
     );
     setMyAttemped(data);
+    setLoading(false)
   };
   return (
     <div className="w-full ">
-      <div className='mt-6 mb-14  h-64 w-full bg-no-repeat bg-center  bg-cover bg-pendingBg bg-blend-darken rounded-2xl'>
-    <div className=' bg-black/60 w-full h-full flex flex-col justify-center items-center rounded-2xl'>
-    <h1 className='text-5xl text-center font-bold text-orange-500'>  PENDING ASSIGNMENT
+      <div className='mt-6 mb-14  h-[400px] w-full bg-no-repeat bg-center  bg-cover bg-pendingBg bg-blend-darken rounded-2xl'>
+    <div className=' bg-black/50 w-full h-full flex flex-col justify-center items-center rounded-2xl'>
+    <h1 className='text-5xl text-center font-bold text-lime-400'>  PENDING ASSIGNMENT
     </h1>
-    <h1 className='text-xl text-center font-bold text-white/80 mt-5'> We will give you many benefits when using online learning
+    <h1 className='text-xl text-center font-bold text-white/80 mt-5'> Forget the outside world 🧠
     </h1>
     </div>
      </div>

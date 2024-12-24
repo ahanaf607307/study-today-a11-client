@@ -17,14 +17,14 @@ function Navbar() {
     setTheme(theme === "light" ? "dark" : "light");
   };
   return (
-    <div className="navbar bg-base-100 h-20">
+    <div className="navbar bg-base-100 h-20 ">
       <div className="navbar-start">
         <Link className=" w-24 ">
           <img className="h-7" src={logoImage} alt="logo" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul id="navbar" className="menu menu-horizontal lg:flex gap-x-5">
+        <ul id="navbar" className="menu menu-horizontal lg:flex gap-x-5 gap-y-2">
           <li>
             <NavLink to="/">Home </NavLink>
           </li>

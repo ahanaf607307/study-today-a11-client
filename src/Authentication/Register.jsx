@@ -7,13 +7,6 @@ function Register() {
 
     const {registerNewUser , setUser , updateUserProfile , setErrorInvalid,errorInvalid} = useContext(AuthContext)
     const navigate = useNavigate()
-
-
-
-   
-
-
-
     const handleRegisterUser = (e) => {
         e.preventDefault()
         const name = e.target.name.value
@@ -21,8 +14,6 @@ function Register() {
         const email = e.target.email.value
         const password = e.target.password.value
         const userDetails = {name , photoUrl , email , password}
-
-
         const validPassword = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
         if(password.length < 6){
           setErrorInvalid('Password at least 6 carecter')
@@ -33,7 +24,6 @@ function Register() {
          setErrorInvalid('Password at least one Upparcase Letter , one LowerCase Letter ')
          return;
      }
-     
 
         setErrorInvalid('')
         registerNewUser(email , password)

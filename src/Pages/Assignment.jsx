@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Swal from "sweetalert2";
 import AssignCard from './AssignCard';
-
+import assignmentBg from '../assets/assignmentBg.png'
 
 
 function Assignment() {
@@ -55,11 +55,11 @@ const [assignments , setAssignments] = useState([])
 
   return (
     <div className='p-10 '>
-      <div className='mt-6 mb-14  h-96 w-full bg-no-repeat bg-center  bg-cover bg-pendingBg bg-blend-darken rounded-2xl'>
+      <div className='mt-6 mb-14  h-[500px] w-full bg-no-repeat bg-center  bg-cover bg-assignmentBg bg-blend-darken rounded-2xl'>
    <div className=' bg-black/60 w-full h-full flex flex-col justify-center items-center rounded-2xl'>
-   <h1 className='text-5xl text-center font-bold text-orange-500'>  WHY CHOOSE ONLINE LEARNING?
+   <h1 className='text-5xl text-center font-bold text-lime-400 w-9/12'> Meet, chat, and study with students from all over the world
    </h1>
-   <h1 className='text-xl text-center font-bold text-white/80 mt-5'> We will give you many benefits when using online learning
+   <h1 className='text-xl text-center font-bold text-white/80 mt-5 w-8/12'> Join the largest global student community online and say goodbye to lack of motivation.
    </h1>
    </div>
      
@@ -74,7 +74,7 @@ const [assignments , setAssignments] = useState([])
 
 
     
-    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 mb-10'>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10 mb-10'>
       {
         assignments?.map(card => <AssignCard key={card?._id} card={card} handleDelete={handleDelete}/>)
       }

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthProvider";
 
@@ -14,7 +14,7 @@ function UpdateAssignment() {
   const [selectedValue, setSelectedValue] = useState(
     oldData?.selectValue || ""
   );
-
+const navigate = useNavigate()
 
   useEffect(() => {
     oldDataForUpdate();
@@ -101,6 +101,7 @@ function UpdateAssignment() {
             text: "Do you want to continue",
             icon: "success",
           });
+          navigate('/assignment')
         }
       })
       .catch((err) => {

@@ -47,7 +47,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/assignmentDetails/:id",
-        element: <AssignmentDetails />,
+        element:<PrivateRoute> <AssignmentDetails /></PrivateRoute>,
       },
       {
         path: "/takeAssignment/:id",
