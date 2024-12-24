@@ -37,7 +37,7 @@ function PendingAssignments() {
      <div className="w-full my-14">
 
 <h1 className="text-3xl my-10 text-orange-600 font-cardFont font-bold text-center">
-  {myAttempted?.length} Attempted By - {user?.displayName}{" "}
+   Total Pending -  {myAttempted?.length}
 </h1>
 <section>
   <div className="overflow-x-auto">

@@ -36,7 +36,6 @@ function Register() {
                 setUser({
                   ...res.user
                 })
-               
             })
             .catch(error => {
               setErrorInvalid(error.message)
