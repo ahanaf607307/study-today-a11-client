@@ -4,13 +4,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthProvider";
-import { div } from "motion/react-client";
-// import {format} from 'date-fns'
 
 function CreateAssignments() {
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
-
+  const [error, setError] = useState("");
   const handleAssignmentSubmit = (e) => {
     e.preventDefault();
     const userEmail = user.email;
@@ -32,6 +30,15 @@ function CreateAssignments() {
       userEmail,
       userName,
     };
+
+    if (!startDate) {
+      setError("Give Valid Date");
+      return;
+    }
+    setError(""); 
+
+
+
     console.log(assignmentData);
     axios
       .post(`${import.meta.env.VITE_API}/assignments`, assignmentData)
@@ -58,6 +65,8 @@ function CreateAssignments() {
       });
   };
 
+
+ 
   return (
     <div>
       <h1 className="text-5xl text-center text-orange-600 font-semibold my-8">
@@ -122,16 +131,17 @@ function CreateAssignments() {
             </select>
           </label>
 
-          <label className="form-control w-full  ">
-            <div className="label">
-              <span className="label-text">Date</span>
-            </div>
-            <DatePicker
-              className="border px-3 py-3 rounded-xl w-full cursor-pointer"
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-            />
-          </label>
+          <label className="form-control w-full">
+        <div className="label">
+          <span className="label-text">Date</span>
+        </div>
+        <DatePicker
+          className="border px-3 py-3 rounded-xl w-full cursor-pointer"
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+        />
+      </label>
+      {error && <p className="text-red-500">{error}</p>}
           <input
             type="submit"
             className="btn bg-[#a3a384] w-full my-5"
