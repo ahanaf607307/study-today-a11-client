@@ -1,8 +1,56 @@
-# React + Vite
+# Online Group Study Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Project Name -( Study Today )
 
-Currently, two official plugins are available:
+## Live Link
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Links https://assignment11-56371.web.app/
+
+---
+
+## Purpose
+
+The purpose of **Study Today** is to provide an interactive and collaborative platform for group studies. It empowers users to:
+
+- Create and manage study assignments.
+- Collaborate with friends and track progress.
+- Provide and receive constructive feedback through grading systems.
+
+---
+
+## Key Features
+
+1. **User Authentication:**
+
+   - Secure login and signup system.
+
+2. **Assignment Management:**
+
+   - Users can create assignments with deadlines and details.
+
+3. **Collaboration Tools:**
+
+   - Friends can view and attempt assignments.
+   - Users can grade each other’s submissions.
+
+4. **Interactive Dashboard:**
+   - Overview of assignments, deadlines, and progress.
+5. **Responsive Design:**
+   - Fully responsive UI for seamless use on all devices.
+
+---
+
+## NPM Packages
+
+### Frontend
+
+- `react-router-dom`
+- `axios`
+- `react-hook-form`
+
+### Backend
+
+- `express`
+- `mongoose`
+- `cors`
+- `dotenv`
