@@ -15,6 +15,9 @@ export default {
       'pendingBg': "url('/src/assets/pendingBg.png')",
       'bannerBg': "url('/src/assets/banner.png')",
       'assignmentBg': "url('/src/assets/assignmentBg.png')",
+      'fOne': "url('/src/assets/f1.png')",
+      'fTwo': "url('/src/assets/f2.png')",
+      'fThree': "url('/src/assets/f3.png')",
     }
     },
   },
