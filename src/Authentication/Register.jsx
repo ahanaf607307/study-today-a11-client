@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthProvider'
 import Swal from 'sweetalert2'
+import lottieLogin from '../assets/login.json';
+import Lottie from 'lottie-react';
 
 function Register() {
 
@@ -59,13 +61,17 @@ function Register() {
 
     
   return (
-    <div className="border-2 rounded-xl shadow-2xl md:w-[500px] my-10 md:my-32 mx-auto p-4 m-2 md:p-10">
+    <div className="grid lg:grid-cols-2 justify-center items-center  bg-registerBg bg-cover bg-center lg:px-1 xl:px-64 font-cardFont">
+      <div>
+        <Lottie animationData={lottieLogin}/>
+      </div>
+      <div className="border-2 rounded-xl shadow-2xl md:w-[500px] lg:my-24 mx-auto p-4 m-2 md:p-10 backdrop-blur-3xl">
     
-     <h1 className="text-center font-semibold my-5 text-3xl">Register Now</h1>
+     <h1 className="text-center font-semibold  text-white/90 text-3xl">Register Now</h1>
     <form onSubmit={handleRegisterUser} className="font-semibold text-gray-600">
       <label className="form-control w-full ">
         <div className="label">
-          <span className="label-text">Name</span>
+          <span className="label-text text-white/90">Name</span>
         </div>
         <input
           type="text"
@@ -77,7 +83,7 @@ function Register() {
       </label>
       <label className="form-control w-full ">
         <div className="label">
-          <span className="label-text">Photo Url</span>
+          <span className="label-text text-white/90">Photo Url</span>
         </div>
         <input
           type="url"
@@ -89,7 +95,7 @@ function Register() {
       </label>
       <label className="form-control w-full ">
         <div className="label">
-          <span className="label-text">Email</span>
+          <span className="label-text text-white/90">Email</span>
         </div>
         <input
           type="email"
@@ -101,7 +107,7 @@ function Register() {
       </label>
       <label className="form-control w-full ">
         <div className="label">
-          <span className="label-text">Password</span>
+          <span className="label-text text-white/90">Password</span>
         </div>
         <input
           type="password"
@@ -118,13 +124,14 @@ function Register() {
       />
     </form>
     <h1 className='my-2 text-red-600 mx-auto text-lg'>{errorInvalid} </h1>
-    <h1 className="my-10">
+    <h1 className="my-10 font-semibold text-xl">
       Already Have an account  ?{" "}
       <Link className="text-red-600 underline" to="/login">
         Login
       </Link>{" "}
     </h1>
   </div>
+    </div>
   )
 }
 

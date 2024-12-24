@@ -18,6 +18,8 @@ export default {
       'fOne': "url('/src/assets/f1.png')",
       'fTwo': "url('/src/assets/f2.png')",
       'fThree': "url('/src/assets/f3.png')",
+      'loginBg': "url('/src/assets/loginBg.svg')",
+      'registerBg': "url('/src/assets/registerBg.svg')",
     }
     },
   },
