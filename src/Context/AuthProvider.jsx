@@ -22,12 +22,11 @@ function AuthProvider({ children }) {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  // update user profile 
+  // update user profile
 
   const updateUserProfile = (updatedData) => {
-   
-    return updateProfile(auth.currentUser, updatedData)
-  }
+    return updateProfile(auth.currentUser, updatedData);
+  };
   // login user with email and password
   const loginUser = (email, password) => {
     setLoading(true);
@@ -47,24 +46,20 @@ function AuthProvider({ children }) {
   const logOutUser = () => {
     return signOut(auth)
       .then(() => {
-        console.log("user Logged Out Done");
       })
       .catch((error) => {
-        console.log(error.message);
+        
       });
   };
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      
       setUser(currentUser);
-      console.log("Logged In User is --->> ", currentUser);
       setLoading(false);
     });
 
     return () => {
       unSubscribe();
-      console.log("logged out user done ");
     };
   }, []);
 

@@ -5,7 +5,7 @@ import Footer from "../Footer/Footer";
 
 function MainLayout() {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen  max-w-7xl mx-auto">
       {/* navbar starts */}
       <div>
         <Navbar />

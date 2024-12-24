@@ -12,5 +12,8 @@
 }
 #navbar a.active {
   font-weight: bold;
-  background: #278018;
+  border-bottom: 1px solid #e74918;
+  border-top: 2px solid #e74918;
+  color: #e74918;
+  background-color: transparent;
 }

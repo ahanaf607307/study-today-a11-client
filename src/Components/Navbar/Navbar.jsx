@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { FaUserTimes } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import logoImage from '../../assets/logo.png'
 
 function Navbar() {
   const { user, logOutUser } = useContext(AuthContext);
@@ -16,14 +17,14 @@ function Navbar() {
     setTheme(theme === "light" ? "dark" : "light");
   };
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 h-20">
       <div className="navbar-start">
-        <Link className=" w-24 text-xl font-bold text-pink-600">
-          <img src="/src/assets/logo.png" alt="logo" />
+        <Link className=" w-24 ">
+          <img className="h-7" src={logoImage} alt="logo" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul id="navbar" className="menu menu-horizontal px-1">
+        <ul id="navbar" className="menu menu-horizontal lg:flex gap-x-5">
           <li>
             <NavLink to="/">Home </NavLink>
           </li>
