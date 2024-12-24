@@ -1,6 +1,7 @@
 import React from 'react'
 import Banner from './Banner'
 import Feature from './Feature'
+import Faq from './Faq'
 
 function Home() {
 
@@ -8,6 +9,7 @@ function Home() {
     <div>
       <Banner/>
       <Feature/>
+      <Faq/>
     </div>
   )
 }

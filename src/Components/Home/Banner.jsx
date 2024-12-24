@@ -11,7 +11,7 @@ Best For Education
 <p className='font-semibold text-white/80 text-2xl my-5 '>
 Batter Education For Batter World
 </p>
-<button className=' px-10 text-white/90 text-xl py-4 rounded-xl border border-white/70 hover:bg-orange-500 transition-all duration-100 hover:scale-110 bg-orange-600 '>Explore Now </button>
+<button className=' px-10 text-black/90 text-xl py-4 rounded-xl border-2 border-white/70 hover:bg-orange-500 transition-all duration-100 hover:scale-110 bg-lime-400 '>Explore Now </button>
      </div>
     </div>
   )
