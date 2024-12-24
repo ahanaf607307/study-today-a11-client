@@ -28,7 +28,6 @@ function Login() {
       .then((res) => {
         const user = res.user
         setUser(user);
-        // setLoading(true)
         Swal.fire({
           title: "Login Successfully",
           text: "Click Ok to Continue",
@@ -52,7 +51,6 @@ const handleGoogleLogin = () => {
     googleLoginUser()
     .then((result) => {
       setUser(result.user);
-      // setLoading(true)
       Swal.fire({
         title: "Login Successfully",
         text: "Click Ok to Continue",

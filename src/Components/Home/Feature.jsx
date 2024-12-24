@@ -11,17 +11,26 @@ import { GiProgression } from 'react-icons/gi'
 import { FaUsers } from 'react-icons/fa'
 import { MdOutlineLeaderboard } from 'react-icons/md'
 import { FaPeopleGroup } from 'react-icons/fa6'
+import { Fade } from 'react-awesome-reveal'
 
 function Feature() {
   return (
     <section class=" flex flex-col justify-center items-center py-14 font-cardFont">
+  
   <div class=" text-center">
-    <h2 class="text-5xl font-bold text-orange-600 ">Key Features of Our Application</h2>
-    <p class="mt-4 text-md text-gray-600">These features will make your tasks easier and faster.</p>
+
+   <h2 class="text-5xl font-bold text-orange-600 ">Key Features of Our Application</h2>
+
+   <h1 className='mt-4'>
+   <Fade>
+   <p class="mt-4 text-md text-gray-600">These features will make your tasks easier and faster.</p></Fade>
+   </h1>
   </div>
+  
   <div class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-4 mt-14">
     {/* <!-- Feature 1 --> */}
-    <div className="card bg-base-100 image-full w-96 shadow-xl">
+   <Fade>
+   <div className="card bg-base-100 image-full w-96 shadow-xl">
   <figure>
     <img
       src={fOne}
@@ -35,7 +44,9 @@ function Feature() {
    <p className='text-md text-white/90 mt-2'>Include file attachments and grading rubrics for detailed evaluations</p>
   </div>
 </div>
+   </Fade>
     {/* <!-- Feature 2 --> */}
+    <Fade>
     <div className="card bg-base-100 image-full w-96 shadow-xl">
   <figure>
     <img
@@ -50,7 +61,9 @@ function Feature() {
    <p className='text-md text-white/90 mt-2'>Feedback and grading reports are shared transparently.</p>
   </div>
 </div>
+    </Fade>
     {/* <!-- Feature 3 --> */}
+    <Fade>
     <div className="card bg-base-100 image-full w-96 shadow-xl">
   <figure>
     <img
@@ -66,6 +79,10 @@ function Feature() {
   </div>
     {/* <!-- Feature 4 --> */}
 </div>
+
+    </Fade>
+{/* feature 4 */}
+    <Fade>
     <div className="card bg-base-100 image-full w-96 shadow-xl">
   <figure>
     <img
@@ -80,8 +97,10 @@ function Feature() {
    <p className='text-md text-white/90 mt-2'>Supports multimedia sharing for effective communication.</p>
   </div>
 </div>
+    </Fade>
 
   {/* <!-- Feature 5 --> */}
+    <Fade>
     <div className="card bg-base-100 image-full w-96 shadow-xl">
   <figure>
     <img
@@ -97,6 +116,9 @@ function Feature() {
   </div>
     {/* <!-- Feature 6 --> */}
 </div>
+    </Fade>
+{/* features 6 */}
+    <Fade>
     <div className="card bg-base-100 image-full w-96 shadow-xl">
   <figure>
     <img
@@ -111,6 +133,7 @@ function Feature() {
    <p className='text-md text-white/90 mt-2'>Set privacy options to make groups public, private, or invitation-only.</p>
   </div>
 </div>
+    </Fade>
   </div>
 </section>
   )

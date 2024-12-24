@@ -1,11 +1,18 @@
 import { div } from 'motion/react-client'
 import React from 'react'
+import { Fade } from 'react-awesome-reveal'
 
 function Faq() {
   return (
     <div className='flex flex-col justify-center items-center w-full font-cardFont'>
-<h1 className='text-5xl font-bold text-orange-600 text-center'>Do You Have Any Question ? </h1>
+      <Fade>
+      <h1 className='text-5xl font-bold text-orange-600 text-center'>Do You Have Any Question ? </h1>
+      </Fade>
+
+<Fade>
+
 <p className='mt-4 mb-10 text-xl font-semibold text-gray-500'>We Have Answer , Wel Most Of The Time</p>
+</Fade>
 
 <div className="join join-vertical w-full">
     <div className="collapse collapse-arrow join-item border-base-300 border">

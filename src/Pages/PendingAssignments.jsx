@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
+import { Fade } from "react-awesome-reveal";
 function PendingAssignments() {
   const { user , setLoading } = useContext(AuthContext);
 
@@ -23,7 +24,8 @@ function PendingAssignments() {
     setLoading(false)
   };
   return (
-    <div className="w-full ">
+    <Fade>
+      <div className="w-full ">
       <div className='mt-6 mb-14  h-[400px] w-full bg-no-repeat bg-center  bg-cover bg-pendingBg bg-blend-darken rounded-2xl'>
     <div className=' bg-black/50 w-full h-full flex flex-col justify-center items-center rounded-2xl'>
     <h1 className='text-5xl text-center font-bold text-lime-400'>  PENDING ASSIGNMENT
@@ -65,6 +67,7 @@ function PendingAssignments() {
 </section>
 </div>
     </div>
+    </Fade>
   )
 }
 

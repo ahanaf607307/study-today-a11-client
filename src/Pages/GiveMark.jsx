@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthProvider";
+import { Fade } from "react-awesome-reveal";
 
 function GiveMark() {
   const { id } = useParams();
@@ -78,9 +79,10 @@ if(user.email === oldData.submitedBy) {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center ">
+    <Fade fraction={0.5}>
+      <div className="flex flex-col justify-center items-center ">
       <div className="w-96 border-2 shadow-lg my-16 p-5">
-        <a href={oldData?.googleDocs}  target="_blank" className="underline">
+        <a href={oldData?.googleDocs}  target="_blank" className="underline font-semibold text-orange-500 text-md">
           Open to see Docs link
         </a>
         <form onSubmit={handleGiveMark}>
@@ -116,6 +118,7 @@ if(user.email === oldData.submitedBy) {
         </form>
       </div>
     </div>
+    </Fade>
   );
 }
 

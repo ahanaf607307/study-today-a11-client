@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Swal from "sweetalert2";
 import AssignCard from './AssignCard';
 import assignmentBg from '../assets/assignmentBg.png'
+import { Fade } from 'react-awesome-reveal';
 
 
 function Assignment() {
@@ -48,13 +49,10 @@ const [assignments , setAssignments] = useState([])
       });
   };
 
- 
-
-
-
 
   return (
-    <div className='p-10 '>
+    <Fade>
+      <div className='p-10 '>
       <div className='mt-6 mb-14  h-[500px] w-full bg-no-repeat bg-center  bg-cover bg-assignmentBg bg-blend-darken rounded-2xl'>
    <div className=' bg-black/60 w-full h-full flex flex-col justify-center items-center rounded-2xl'>
    <h1 className='text-5xl text-center font-bold text-lime-400 w-9/12'> Meet, chat, and study with students from all over the world
@@ -80,6 +78,7 @@ const [assignments , setAssignments] = useState([])
       }
     </div>
     </div>
+    </Fade>
   )
 }
 

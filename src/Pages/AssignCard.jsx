@@ -6,6 +6,7 @@ import { AuthContext } from "../Context/AuthProvider";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Fade } from "react-awesome-reveal";
 
 function AssignCard({ card, handleDelete }) {
   const { user } = useContext(AuthContext);
@@ -34,7 +35,8 @@ function AssignCard({ card, handleDelete }) {
     });
   };
   return (
-    <div className="p-8 bg-base-100  shadow-xl rounded-xl font-cardFont">
+    <Fade cascade  fraction={0.5}>
+      <div className="p-8 bg-base-100  shadow-xl rounded-xl font-cardFont">
       <div className="flex flex-col h-[440px]">
         <div>
           <h1 className="text-orange-600 font-medium">
@@ -74,6 +76,7 @@ function AssignCard({ card, handleDelete }) {
         </section>
       </div>
     </div>
+    </Fade>
   );
 }
 
