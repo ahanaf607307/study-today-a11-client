@@ -7,7 +7,8 @@ import { AuthContext } from '../Context/AuthProvider';
 
 function Register() {
 
-    const {registerNewUser , setUser , updateUserProfile , setErrorInvalid,errorInvalid} = useContext(AuthContext)
+    const {registerNewUser , user , setUser , updateUserProfile , setErrorInvalid,errorInvalid} = useContext(AuthContext)
+   
     const navigate = useNavigate()
     const handleRegisterUser = (e) => {
         e.preventDefault()
@@ -34,15 +35,12 @@ function Register() {
             updateUserProfile(updateUserData)
             .then(res => {
                 setUser({
-                  ...res.user
+                  ...res.user,
+                  ...updateUserData
                 })
             })
             .catch(error => {
               setErrorInvalid(error.message)
-            })
-
-            setUser({
-                ...res.user
             })
             Swal.fire({
               title: "Register Successfully",

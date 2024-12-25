@@ -23,7 +23,7 @@ const customAxiosSecure = useCustomAxiosSecure()
   };
   return (
     <div className="w-full">
-      <h1 className="text-3xl my-10 text-orange-600 font-cardFont font-bold text-center">
+      <h1 className="text-2xl md:text-3xl my-10 text-orange-600 font-cardFont font-bold text-center">
         {myAttempted?.length} Attempted By - {user?.displayName}{" "}
       </h1>
       {

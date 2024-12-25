@@ -19,18 +19,18 @@ function Feature() {
   
   <div class=" text-center">
 
-   <h2 class="text-5xl font-bold text-orange-600 ">Key Features of Our Application</h2>
+   <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-orange-600 ">Key Features of Our Application</h2>
 
    <h1 className='mt-4'>
    <Fade>
-   <p class="mt-4 text-md text-gray-600">These features will make your tasks easier and faster.</p></Fade>
+   <p class="mt-4 px-2 text-md text-gray-600">These features will make your tasks easier and faster.</p></Fade>
    </h1>
   </div>
   
-  <div class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-4 mt-14">
+  <div class="grid gird-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3  mt-14 p-4">
     {/* <!-- Feature 1 --> */}
    <Fade>
-   <div className="card bg-base-100 image-full w-96 shadow-xl">
+   <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
       src={fOne}
@@ -47,7 +47,7 @@ function Feature() {
    </Fade>
     {/* <!-- Feature 2 --> */}
     <Fade>
-    <div className="card bg-base-100 image-full w-96 shadow-xl">
+    <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
       src={fTwo}
@@ -64,7 +64,7 @@ function Feature() {
     </Fade>
     {/* <!-- Feature 3 --> */}
     <Fade>
-    <div className="card bg-base-100 image-full w-96 shadow-xl">
+    <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
       src={fThree}
@@ -83,7 +83,7 @@ function Feature() {
     </Fade>
 {/* feature 4 */}
     <Fade>
-    <div className="card bg-base-100 image-full w-96 shadow-xl">
+    <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
       src={fFour}
@@ -101,7 +101,7 @@ function Feature() {
 
   {/* <!-- Feature 5 --> */}
     <Fade>
-    <div className="card bg-base-100 image-full w-96 shadow-xl">
+    <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
       src={fFive}
@@ -119,7 +119,7 @@ function Feature() {
     </Fade>
 {/* features 6 */}
     <Fade>
-    <div className="card bg-base-100 image-full w-96 shadow-xl">
+    <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
       src={fSix}
@@ -127,7 +127,7 @@ function Feature() {
   </figure>
   <div className="card-body">
     <h1 className='text-7xl text-orange-500  my-2 text-center'><FaPeopleGroup /></h1>
-  <h1 className='text-3xl font-bold text-lime-400 '>Customizable Study Groups</h1>
+  <h1 className='text-3xl font-bold text-lime-400 '> Study Groups</h1>
    <p className='text-md text-white/90 mt-2'>VCreate or join study groups based on interests, subjects, or goals.
    </p>
    <p className='text-md text-white/90 mt-2'>Set privacy options to make groups public, private, or invitation-only.</p>

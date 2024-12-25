@@ -6,12 +6,12 @@ function Faq() {
   return (
     <div className='flex flex-col justify-center items-center w-full font-cardFont'>
       <Fade>
-      <h1 className='text-5xl font-bold text-orange-600 text-center'>Do You Have Any Question ? </h1>
+      <h1 className='text-3xl px-5 md:text-4xl lg:text-5xl font-bold text-orange-600 text-center'>Do You Have Any Question ? </h1>
       </Fade>
 
 <Fade>
 
-<p className='mt-4 mb-10 text-xl font-semibold text-gray-500'>We Have Answer , Wel Most Of The Time</p>
+<p className='mt-4 mb-10 px-4 text-center text-xl font-semibold text-gray-500'>We Have Answer , Wel Most Of The Time</p>
 </Fade>
 
 <div className="join join-vertical w-full">

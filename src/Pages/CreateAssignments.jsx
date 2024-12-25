@@ -66,11 +66,11 @@ function CreateAssignments() {
 
  
   return (
-    <div>
-      <h1 className="text-5xl text-center text-orange-600 font-semibold my-8">
+    <div className="px-1">
+      <h1 className="text-2xl md:text-4xl lg:text-5xl text-center text-orange-600 font-semibold md:my-8">
         Create Your Assignment
       </h1>
-      <div className="md:w-[500px] lg:w-[800px] mx-auto border-2 shadow-xl p-5 my-10 rounded-xl bg-no-repeat bg-center  bg-cover bg-updatebg">
+      <div className="md:w-[500px] lg:w-[800px] w-full  mx-auto border-2 shadow-xl p-5 my-10 rounded-xl bg-no-repeat bg-center  bg-cover bg-updatebg ">
         <form onSubmit={handleAssignmentSubmit}>
           <label className="form-control w-full  ">
             <div className="label">
@@ -139,10 +139,10 @@ function CreateAssignments() {
           onChange={(date) => setStartDate(date)}
         />
       </label>
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-lime-500">{error}</p>}
           <input
             type="submit"
-            className="btn bg-[#a3a384] w-full my-5"
+            className="btn bg-[#71ca1e] text-white/90 w-full my-5"
             value="Create Assignment"
           />
         </form>

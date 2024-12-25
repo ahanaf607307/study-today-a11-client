@@ -9,7 +9,9 @@ function Home() {
   return (
     <div>
       <Banner/>
-      <Feature/>
+   <div className='my-8'>
+   <Feature/>
+   </div>
       <Faq/>
     <div className='my-14'>
     <Group/>

@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Context/AuthProvider';
-import useCustomAxiosSecure from '../Components/CustomHook/CustomAxios';
+
 
 function TakeAssignment() {
 
@@ -38,9 +38,9 @@ const {user} = useContext(AuthContext)
         })
     }
   return (
-    <div className=' w-8/12 flex flex-col justify-center items-center mx-auto '>
+    <div className='w-full md:w-8/12 flex flex-col justify-center items-center mx-auto px-2'>
       <h1 className="text-4xl text-center text-orange-600 font-bold font-cardFont my-6">Take Assignment</h1>
-      <form onSubmit={handleTakeAssignment} className='border-2 shadow-xl md:w-[500px] p-5 rounded-xl'>
+      <form onSubmit={handleTakeAssignment} className='border-2 w-full  shadow-xl md:w-[500px] p-5 rounded-xl'>
       <div className="form-control">
           <label className="label">
             <span className="label-text"> Google Docs Link</span>

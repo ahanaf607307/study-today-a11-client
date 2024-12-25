@@ -3,9 +3,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import Loading from "../Authentication/Loading";
 import useCustomAxiosSecure from "../Components/CustomHook/CustomAxios";
 import { AuthContext } from "../Context/AuthProvider";
-import Loading from "../Authentication/Loading";
 
 function GiveMark() {
    const [loadingSpinner, setLoadingSpinner] = useState(true)
@@ -63,8 +63,8 @@ function GiveMark() {
 
   const errorTost = () => {
     Swal.fire({
-      title: "Can't Give Mark's and Feedback",
-      text: "Owner Can't Give Feedback & Mark's",
+      title: "Owner Can't Give Feedback & Mark'",
+      text: "Please Try Another One",
       icon: "error",
     });
   };

@@ -28,11 +28,11 @@ function PendingAssignments() {
   return (
     <Fade>
       <div className="w-full ">
-      <div className='mt-6 mb-14  h-[400px] w-full bg-no-repeat bg-center  bg-cover bg-pendingBg bg-blend-darken rounded-2xl'>
+      <div className='mt-6 mb-14 h-[260px]  md:h-[400px] w-full bg-no-repeat bg-center  bg-cover bg-pendingBg bg-blend-darken rounded-2xl'>
     <div className=' bg-black/50 w-full h-full flex flex-col justify-center items-center rounded-2xl'>
-    <h1 className='text-5xl text-center font-bold text-lime-400'>  PENDING ASSIGNMENT
+    <h1 className='text-3xl md:text-4xl lg:text-5xl text-center font-bold text-lime-400'>  PENDING ASSIGNMENT
     </h1>
-    <h1 className='text-xl text-center font-bold text-white/80 mt-5'> Forget the outside world 🧠
+    <h1 className='text-md md:text-xl text-center font-bold text-white/80 mt-5'> Forget the outside world 🧠
     </h1>
     </div>
      </div>
