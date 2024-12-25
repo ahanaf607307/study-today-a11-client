@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Swal from "sweetalert2";
-import AssignCard from './AssignCard';
-import assignmentBg from '../assets/assignmentBg.png'
 import { Fade } from 'react-awesome-reveal';
+import Swal from "sweetalert2";
+import useCustomAxiosSecure from '../Components/CustomHook/CustomAxios';
+import AssignCard from './AssignCard';
 
 
 function Assignment() {
 const [assignments , setAssignments] = useState([])
-
+const customAxiosSecure = useCustomAxiosSecure()
 
 // fetch data form server (All Assignments)
   useEffect(()=> {
@@ -24,8 +24,8 @@ const [assignments , setAssignments] = useState([])
   const handleDelete = (_id) => {
 
     //  delete api for server
-    axios
-      .delete(`${import.meta.env.VITE_API}/assignments/${_id}`)
+    customAxiosSecure
+      .delete(`/assignments/${_id}`)
       .then((result) => {
   
         if (result.data.deletedCount) {

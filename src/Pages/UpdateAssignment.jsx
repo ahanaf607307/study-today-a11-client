@@ -114,7 +114,7 @@ const navigate = useNavigate()
   };
 
   return (
-    <div>
+    <div className="font-cardFont ">
       <h1 className="text-3xl text-center text-orange-600 font-semibold my-8">
         Update Your Assignment - {oldData.title}
       </h1>
