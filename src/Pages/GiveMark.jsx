@@ -84,6 +84,7 @@ function GiveMark() {
           >
             Open to see Docs link
           </a>
+          <h1 className="text-xm font-semibold font-cardFont text-gray-500  text-wrap my-2">Note : {oldData?.quickNote}</h1>
           <form onSubmit={handleGiveMark}>
             <label className="form-control w-full  ">
               <div className="label">

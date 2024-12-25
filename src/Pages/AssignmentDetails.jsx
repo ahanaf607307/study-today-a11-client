@@ -1,13 +1,14 @@
-import axios from 'axios';
 import { format } from "date-fns";
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import Swal from "sweetalert2";
 import useCustomAxiosSecure from '../Components/CustomHook/CustomAxios';
 
 function AssignmentDetails() {
     const [assignmentData , setAssignmentData] = useState([])
       const customAxiosSecure = useCustomAxiosSecure()
     const {_id,userEmail,userName,title,description,marks,imageUrl,selectValue,deadline} = assignmentData
+    const navigate = useNavigate(); 
     const {id} = useParams()
     useEffect(() => {
         fetchDetailsData()
@@ -21,6 +22,18 @@ const fetchDetailsData = async() => {
 
 // take assignment 
 
+const handleTakeAssignment = () => {
+
+  if (deadline && new Date(deadline) < new Date()) {
+      Swal.fire({
+                title: "Deadline is Over ! ",
+                text: "Can't Take this Assignment",
+                icon: "error",
+              });
+  } else {
+    navigate(`/takeAssignment/${_id}`) ;
+  }
+};
 
   
   return (
@@ -40,7 +53,8 @@ const fetchDetailsData = async() => {
        Deadline: {deadline ? format(new Date(deadline), "P") : "No deadline"}
         </h1>
        </section>
-       <Link to={`/takeAssignment/${_id}`} className='btn bg-orange-600 text-white/90 w-full mt-5'>Take assignmen</Link>
+       {/* <Link to={`/takeAssignment/${_id}`} className='btn bg-orange-600 text-white/90 w-full mt-5'>Take assignmen</Link> */}
+       <button onClick={handleTakeAssignment} className='btn bg-orange-600 text-white/90 w-full mt-5'>Take assignment</button>
         
     </div>
 </div>

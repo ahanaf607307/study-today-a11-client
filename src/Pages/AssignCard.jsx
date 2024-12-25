@@ -35,7 +35,7 @@ function AssignCard({ card, handleDelete }) {
     });
   };
   return (
-    <Fade cascade  fraction={0.5}>
+    <Fade cascade  fraction={0.2}>
       <div className="p-8 bg-base-100  shadow-xl rounded-xl font-cardFont">
       <div className="flex flex-col h-[440px]">
         <div>
