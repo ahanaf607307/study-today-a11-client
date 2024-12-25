@@ -4,8 +4,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AuthContext } from "../Context/AuthProvider";
 import useCustomAxiosSecure from "../Components/CustomHook/CustomAxios";
+import { AuthContext } from "../Context/AuthProvider";
+import Loading from "../Authentication/Loading";
 
 function UpdateAssignment() {
   const customAxiosSecure = useCustomAxiosSecure()
@@ -16,6 +17,7 @@ function UpdateAssignment() {
   const [selectedValue, setSelectedValue] = useState(
     oldData?.selectValue || ""
   );
+  const [loadingSpinner, setLoadingSpinner] = useState(true)
 const navigate = useNavigate()
 
   useEffect(() => {
@@ -48,6 +50,7 @@ const navigate = useNavigate()
     const { data } = await customAxiosSecure.get(
       `/update/${id}`
     );
+    setLoadingSpinner(false)
     setOldData(data);
   };
 
@@ -115,11 +118,12 @@ const navigate = useNavigate()
 
   return (
     <div className="font-cardFont ">
-      <h1 className="text-3xl text-center text-orange-600 font-semibold my-8">
-        Update Your Assignment - {oldData.title}
+      
+      <h1 className='text-3xl md:text-4xl lg:text-5xl text-center font-bold text-orange-600'>   Update Your Assignment - {oldData.title}
       </h1>
-      <div className="md:w-[500px] lg:w-[600px] mx-auto border-2 shadow-xl p-5 my-10 rounded-xl bg-[#e0d3b8]">
-        <form onSubmit={handleAssignmentSubmit}>
+      <div className="md:w-[500px] lg:w-[800px] mx-auto border-2 shadow-xl p-5 my-10 rounded-xl bg-no-repeat bg-center  bg-cover bg-updatebg">
+        {
+          loadingSpinner ? <Loading/> : <form onSubmit={handleAssignmentSubmit}>
           <label className="form-control w-full  ">
             <div className="label">
               <span className="label-text">Title</span>
@@ -197,10 +201,11 @@ const navigate = useNavigate()
           </label>
           <input
             type="submit"
-            className="btn bg-[#a3a384] w-full my-5"
+            className="btn bg-[#a9e224] w-full my-5"
             value="Update"
           />
         </form>
+        }
       </div>
     </div>
   );

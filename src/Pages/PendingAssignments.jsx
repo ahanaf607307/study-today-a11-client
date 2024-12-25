@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
+import Loading from "../Authentication/Loading";
 import useCustomAxiosSecure from "../Components/CustomHook/CustomAxios";
 import { AuthContext } from "../Context/AuthProvider";
 function PendingAssignments() {
   const { user , setLoading } = useContext(AuthContext);
   const customAxiosSecure = useCustomAxiosSecure()
   const [myAttempted, setMyAttemped] = useState([]);
-
+  const [loadingSpinner, setLoadingSpinner] = useState(true)
 
   useEffect(() => {
     fetchAttemptedData();
@@ -20,6 +21,7 @@ function PendingAssignments() {
     const { data } = await customAxiosSecure.get(
       `/allAssignment`
     );
+    setLoadingSpinner(false)
     setMyAttemped(data);
     setLoading(false)
   };
@@ -39,7 +41,8 @@ function PendingAssignments() {
 <h1 className="text-3xl my-10 text-orange-600 font-cardFont font-bold text-center">
    Total Pending -  {myAttempted?.length}
 </h1>
-<section>
+{
+  loadingSpinner ? <Loading/> : <section>
   <div className="overflow-x-auto">
     <table className="table">
       <thead>
@@ -51,20 +54,22 @@ function PendingAssignments() {
           <th>Feedback</th>
         </tr>
       </thead>
-      <tbody>
-        {myAttempted.map((attempt, index) => (
-          <tr key={index}>
-            <th>{index + 1}</th>
-            <td>{attempt?.title ?? "N/A"}</td>
-            <td>{attempt?.marks ?? "N/A"}</td>
-            <td>{attempt?.submiterName ?? "N/A"}</td>
-            <td><Link to={`/giveMark/${attempt?._id}`} className="btn bg-orange-600 font-bold font-cardFont text-white/90">Give Mark</Link></td>
-          </tr>
-        ))}
-      </tbody>
+       <tbody>
+      {myAttempted.map((attempt, index) => (
+        <tr key={index}>
+          <th>{index + 1}</th>
+          <td>{attempt?.title ?? "N/A"}</td>
+          <td>{attempt?.marks ?? "N/A"}</td>
+          <td>{attempt?.submiterName ?? "N/A"}</td>
+          <td><Link to={`/giveMark/${attempt?._id}`} className="btn bg-orange-600 font-bold font-cardFont text-white/90">Give Mark</Link></td>
+        </tr>
+      ))}
+    </tbody>
+    
     </table>
   </div>
 </section>
+}
 </div>
     </div>
     </Fade>

@@ -5,8 +5,10 @@ import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import useCustomAxiosSecure from "../Components/CustomHook/CustomAxios";
 import { AuthContext } from "../Context/AuthProvider";
+import Loading from "../Authentication/Loading";
 
 function GiveMark() {
+   const [loadingSpinner, setLoadingSpinner] = useState(true)
   const customAxiosSecure = useCustomAxiosSecure();
   const { id } = useParams();
 
@@ -18,6 +20,7 @@ function GiveMark() {
 
   const fetchData = async () => {
     const { data } = await customAxiosSecure.get(`/getSignleGive/${id}`);
+    setLoadingSpinner(false)
     setOldData(data);
   };
 
@@ -76,16 +79,22 @@ function GiveMark() {
   return (
     <Fade fraction={0.5}>
       <div className="flex flex-col justify-center items-center ">
-        <div className="w-96 border-2 shadow-lg my-16 p-5">
-          <a
-            href={oldData?.googleDocs}
-            target="_blank"
-            className="underline font-semibold text-orange-500 text-md"
-          >
-            Open to see Docs link
-          </a>
-          <h1 className="text-xm font-semibold font-cardFont text-gray-500  text-wrap my-2">Note : {oldData?.quickNote}</h1>
-          <form onSubmit={handleGiveMark}>
+        <div className="w-full md:w-96 lg:w-[500px] border-2 shadow-lg my-16 p-5 rounded-2xl">
+          <div>
+         {
+          loadingSpinner ? <Loading/> :  <section> 
+            <a
+          href={oldData?.googleDocs}
+          target="_blank"
+          className="underline font-semibold text-orange-500 text-md"
+        >
+          Open to see Docs link
+        </a>
+        <h1 className="text-xm font-semibold font-cardFont text-gray-500  text-wrap my-2">Note : {oldData?.quickNote}</h1>
+          </section>
+         }
+          </div>
+          <form onSubmit={handleGiveMark} className="w-full ">
             <label className="form-control w-full  ">
               <div className="label">
                 <span className="label-text">Give Mark's</span>

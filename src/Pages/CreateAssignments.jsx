@@ -70,7 +70,7 @@ function CreateAssignments() {
       <h1 className="text-5xl text-center text-orange-600 font-semibold my-8">
         Create Your Assignment
       </h1>
-      <div className="md:w-[500px] lg:w-[600px] mx-auto border-2 shadow-xl p-5 my-10 rounded-xl bg-[#e0d3b8]">
+      <div className="md:w-[500px] lg:w-[800px] mx-auto border-2 shadow-xl p-5 my-10 rounded-xl bg-no-repeat bg-center  bg-cover bg-updatebg">
         <form onSubmit={handleAssignmentSubmit}>
           <label className="form-control w-full  ">
             <div className="label">

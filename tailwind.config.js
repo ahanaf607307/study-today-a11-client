@@ -20,6 +20,7 @@ export default {
       'fThree': "url('/src/assets/f3.png')",
       'loginBg': "url('/src/assets/loginBg.svg')",
       'registerBg': "url('/src/assets/registerBg.svg')",
+      'updatebg': "url('/src/assets/updatebg.png')",
     }
     },
   },

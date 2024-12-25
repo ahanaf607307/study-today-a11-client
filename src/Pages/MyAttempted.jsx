@@ -2,23 +2,23 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
 import useCustomAxiosSecure from "../Components/CustomHook/CustomAxios";
+import Loading from "../Authentication/Loading";
 
 
 function MyAttempted() {
   const { user } = useContext(AuthContext);
 const customAxiosSecure = useCustomAxiosSecure()
   const [myAttempted, setMyAttemped] = useState([]);
+    const [loadingSpinner, setLoadingSpinner] = useState(true)
 
   useEffect(() => {
     fetchAttemptedData();
   }, []);
 
   const fetchAttemptedData = async () => {
-    // const { data } = await axios.get(
-    //   `${import.meta.env.VITE_API}/takeAssignment?email=${user?.email}`
-    // );
     const { data } = await customAxiosSecure.get(
       `/takeAssignment/${user?.email}`);
+      setLoadingSpinner(false)
     setMyAttemped(data);
   };
   return (
@@ -26,7 +26,8 @@ const customAxiosSecure = useCustomAxiosSecure()
       <h1 className="text-3xl my-10 text-orange-600 font-cardFont font-bold text-center">
         {myAttempted?.length} Attempted By - {user?.displayName}{" "}
       </h1>
-      <section>
+      {
+        loadingSpinner ? <Loading/>  : <section>
         <div className="overflow-x-auto">
           <table className="table">
             <thead>
@@ -64,6 +65,7 @@ const customAxiosSecure = useCustomAxiosSecure()
           </table>
         </div>
       </section>
+      }
     </div>
   );
 }

@@ -4,11 +4,13 @@ import { Fade } from 'react-awesome-reveal';
 import Swal from "sweetalert2";
 import useCustomAxiosSecure from '../Components/CustomHook/CustomAxios';
 import AssignCard from './AssignCard';
+import Loading from '../Authentication/Loading';
 
 
 function Assignment() {
 const [assignments , setAssignments] = useState([])
 const customAxiosSecure = useCustomAxiosSecure()
+const [loadingSpinner, setLoadingSpinner] = useState(true)
 
 // fetch data form server (All Assignments)
   useEffect(()=> {
@@ -17,6 +19,7 @@ const customAxiosSecure = useCustomAxiosSecure()
 
   const fetchAllAssignments = async () => {
     const { data } = await axios.get(`${import.meta.env.VITE_API}/assignments`)
+    setLoadingSpinner(false)
     setAssignments(data)
 
   }
@@ -68,11 +71,13 @@ const customAxiosSecure = useCustomAxiosSecure()
 
 
     
-    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10 mb-10'>
+    {
+      loadingSpinner ? <Loading/> : <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10 mb-10'>
       {
         assignments?.map(card => <AssignCard key={card?._id} card={card} handleDelete={handleDelete}/>)
       }
     </div>
+    }
     </div>
     </Fade>
   )
