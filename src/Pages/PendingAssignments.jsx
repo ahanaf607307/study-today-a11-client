@@ -1,24 +1,24 @@
-import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../Context/AuthProvider";
 import { Fade } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
+import useCustomAxiosSecure from "../Components/CustomHook/CustomAxios";
+import { AuthContext } from "../Context/AuthProvider";
 function PendingAssignments() {
   const { user , setLoading } = useContext(AuthContext);
-
+  const customAxiosSecure = useCustomAxiosSecure()
   const [myAttempted, setMyAttemped] = useState([]);
 
-  console.log(myAttempted);
+
   useEffect(() => {
     fetchAttemptedData();
     const pendingData = myAttempted.filter(item => item.status='pending')
-    console.log(pendingData)
+
     setMyAttemped(pendingData)
   }, []);
 
   const fetchAttemptedData = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API}/allAssignment`
+    const { data } = await customAxiosSecure.get(
+      `/allAssignment`
     );
     setMyAttemped(data);
     setLoading(false)

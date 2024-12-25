@@ -18,20 +18,16 @@ const [assignments , setAssignments] = useState([])
   const fetchAllAssignments = async () => {
     const { data } = await axios.get(`${import.meta.env.VITE_API}/assignments`)
     setAssignments(data)
-    console.log(data)
+
   }
 
   const handleDelete = (_id) => {
-    console.log("clicked id -> ", _id);
-
-    // chacking user valid or not
-    
 
     //  delete api for server
     axios
       .delete(`${import.meta.env.VITE_API}/assignments/${_id}`)
       .then((result) => {
-        console.log(result.data);
+  
         if (result.data.deletedCount) {
           Swal.fire({
             title: "Deleted!",

@@ -39,11 +39,9 @@ function CreateAssignments() {
 
 
 
-    console.log(assignmentData);
     axios
       .post(`${import.meta.env.VITE_API}/assignments`, assignmentData)
       .then((res) => {
-        console.log(res.data);
         const Toast = Swal.mixin({
           toast: true,
           position: "top-end",

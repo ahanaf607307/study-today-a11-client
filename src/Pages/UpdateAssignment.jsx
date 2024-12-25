@@ -5,8 +5,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthProvider";
+import useCustomAxiosSecure from "../Components/CustomHook/CustomAxios";
 
 function UpdateAssignment() {
+  const customAxiosSecure = useCustomAxiosSecure()
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
   const { id } = useParams();
@@ -43,8 +45,8 @@ const navigate = useNavigate()
     oldDataForUpdate();
   }, []);
   const oldDataForUpdate = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API}/update/${id}`
+    const { data } = await customAxiosSecure.get(
+      `/update/${id}`
     );
     setOldData(data);
   };
@@ -83,7 +85,6 @@ const navigate = useNavigate()
       userEmail,
       userName,
     };
-    console.log(assignmentData);
 
     // Another User Can't Update Another User Data
 
@@ -94,7 +95,6 @@ const navigate = useNavigate()
     axios
       .patch(`${import.meta.env.VITE_API}/assignments/${id}`, assignmentData)
       .then((result) => {
-        console.log(result.data);
         if (result.data.modifiedCount > 0) {
           Swal.fire({
             title: "Successfully Updated!",

@@ -2,18 +2,19 @@ import axios from 'axios';
 import { format } from "date-fns";
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import useCustomAxiosSecure from '../Components/CustomHook/CustomAxios';
 
 function AssignmentDetails() {
     const [assignmentData , setAssignmentData] = useState([])
+      const customAxiosSecure = useCustomAxiosSecure()
     const {_id,userEmail,userName,title,description,marks,imageUrl,selectValue,deadline} = assignmentData
-    console.log(assignmentData)
     const {id} = useParams()
     useEffect(() => {
         fetchDetailsData()
     } , [])
 
 const fetchDetailsData = async() => {
-    const { data } = await axios.get(`${import.meta.env.VITE_API}/update/${id}`);
+    const { data } = await customAxiosSecure.get(`/update/${id}`);
  setAssignmentData(data)
 }
 

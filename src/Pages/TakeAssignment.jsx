@@ -3,11 +3,13 @@ import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Context/AuthProvider';
+import useCustomAxiosSecure from '../Components/CustomHook/CustomAxios';
 
 function TakeAssignment() {
+
 const {id} = useParams()
 const {user} = useContext(AuthContext)
-console.log(id)
+
     const handleTakeAssignment = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -23,7 +25,6 @@ console.log(id)
         const takeAssignmentData = {googleDocs , quickNote ,submitedBy, assignmentId , status , submiterName , obtainedMarks ,feedback }
         axios.post(`${import.meta.env.VITE_API}/takeAssignment` , takeAssignmentData)
         .then(result => {
-            console.log(result.data)
             if(result.data.insertedId) {
                 Swal.fire({
                     title: "Successfully Take Assignment",

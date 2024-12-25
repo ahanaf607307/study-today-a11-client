@@ -1,20 +1,24 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
+import useCustomAxiosSecure from "../Components/CustomHook/CustomAxios";
+
 
 function MyAttempted() {
   const { user } = useContext(AuthContext);
-
+const customAxiosSecure = useCustomAxiosSecure()
   const [myAttempted, setMyAttemped] = useState([]);
-  console.log(myAttempted);
+
   useEffect(() => {
     fetchAttemptedData();
   }, []);
 
   const fetchAttemptedData = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API}/takeAssignment?email=${user?.email}`
-    );
+    // const { data } = await axios.get(
+    //   `${import.meta.env.VITE_API}/takeAssignment?email=${user?.email}`
+    // );
+    const { data } = await customAxiosSecure.get(
+      `/takeAssignment/${user?.email}`);
     setMyAttemped(data);
   };
   return (
