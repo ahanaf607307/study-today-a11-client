@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
 import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthProvider";
 
@@ -53,9 +54,10 @@ function CreateAssignments() {
             toast.onmouseleave = Swal.resumeTimer;
           },
         });
-        Toast.fire({
+        Swal.fire({
+          title: "Successfully Create Assignment!",
+          text: "Do you want to continue",
           icon: "success",
-          title: "Signed in successfully",
         });
       })
       .catch((error) => {

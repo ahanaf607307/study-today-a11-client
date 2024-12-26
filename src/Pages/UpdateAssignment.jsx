@@ -4,9 +4,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import Loading from "../Authentication/Loading";
 import useCustomAxiosSecure from "../Components/CustomHook/CustomAxios";
 import { AuthContext } from "../Context/AuthProvider";
-import Loading from "../Authentication/Loading";
 
 function UpdateAssignment() {
   const customAxiosSecure = useCustomAxiosSecure()
@@ -48,7 +48,7 @@ const navigate = useNavigate()
   }, []);
   const oldDataForUpdate = async () => {
     const { data } = await customAxiosSecure.get(
-      `/update/${id}`
+      `/updateDetails/${id}`
     );
     setLoadingSpinner(false)
     setOldData(data);
