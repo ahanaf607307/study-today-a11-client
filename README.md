@@ -1,4 +1,4 @@
-# Online Group Study Application
+# Online Assignment Takeing Website
 
 # Project Name -( Study Today )
 
