@@ -1,7 +1,7 @@
 import React from 'react'
 import Banner from './Banner'
-import Feature from './Feature'
 import Faq from './Faq'
+import Feature from './Feature'
 import Group from './Group'
 
 function Home() {
@@ -13,7 +13,7 @@ function Home() {
    <Feature/>
    </div>
       <Faq/>
-    <div className='my-14'>
+    <div className=''>
     <Group/>
     </div>
     </div>

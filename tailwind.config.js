@@ -21,6 +21,7 @@ export default {
       'loginBg': "url('/src/assets/loginBg.svg')",
       'registerBg': "url('/src/assets/registerBg.svg')",
       'updatebg': "url('/src/assets/updatebg.png')",
+      'newsLetter': "url('/src/assets/newsLetter/newsLetter.png')",
     }
     },
   },

@@ -1,20 +1,21 @@
-import { div } from 'motion/react-client'
 import React from 'react'
 import { Fade } from 'react-awesome-reveal'
 
 function Faq() {
   return (
-    <div className='flex flex-col justify-center items-center w-full font-cardFont'>
+   <div className='bg-[#dedcff] py-16'>
+
+<div className='flex flex-col justify-center items-center w-full font-cardFont  max-w-7xl mx-auto '>
       <Fade>
-      <h1 className='text-3xl px-5 md:text-4xl lg:text-5xl font-bold text-orange-600 text-center'>Do You Have Any Question ? </h1>
+      <h1 className='text-3xl px-5 md:text-4xl lg:text-5xl font-bold text-[#ff5e3b] text-center'>Do You Have Any Question ? </h1>
       </Fade>
 
 <Fade>
 
-<p className='mt-4 mb-10 px-4 text-center text-xl font-semibold text-gray-500'>We Have Answer , Wel Most Of The Time</p>
+<p className='mt-4 mb-10 px-4 text-center text-xl font-semibold text-black'>We Have Answer , Wel Most Of The Time</p>
 </Fade>
 
-<div className="join join-vertical w-full">
+<div className="join join-vertical w-full text-black/90">
     <div className="collapse collapse-arrow join-item border-base-300 border">
       <input type="radio" name="my-accordion-4" defaultChecked />
       <div className="collapse-title text-xl font-medium">1. How can I create an assignment?</div>
@@ -62,6 +63,7 @@ function Faq() {
     </div>
   </div>
     </div>
+   </div>
   )
 }
 
