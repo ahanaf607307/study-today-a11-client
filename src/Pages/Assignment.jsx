@@ -51,7 +51,7 @@ const [loadingSpinner, setLoadingSpinner] = useState(true)
 
   return (
     <Fade>
-      <div className='pt-14'>
+      <div className='pt-14 max-w-7xl mx-auto'>
       <div className='mt-6 mb-14 h-[300px]  md:h-[500px] w-full bg-no-repeat bg-center  bg-cover bg-assignmentBg bg-blend-darken '>
    <div className=' bg-black/60 w-full h-full flex flex-col justify-center items-center '>
    <h1 className='text-2xl md:text-4xl lg:text-5xl text-center font-bold text-white px-2 md:w-9/12'> Meet, chat, and study with students from all over the world
