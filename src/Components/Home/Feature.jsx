@@ -15,7 +15,7 @@ import fSix from '../../assets/fSix.png'
 
 function Feature() {
   return (
-   <div >
+   <div id="assignment">
      <section class=" flex flex-col justify-center items-center py-14 font-cardFont max-w-7xl mx-auto">
   
   <div class=" text-center">

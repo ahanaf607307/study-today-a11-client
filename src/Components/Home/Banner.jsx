@@ -1,5 +1,6 @@
 import React from "react";
 import { Fade } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 
 function Banner() {
@@ -21,9 +22,9 @@ function Banner() {
           <p className="font-semibold text-[#ff5e3b] text-sm md:text-xl lg:text-2xl my-2 md:my-5 ">
             Batter Education For Batter World
           </p>
-          <button className="px-2 text-sm md:px-6 lg:px-10 text-black/90  font-semibold md:text-xl py-1 md:py-2 lg:py-4 rounded-xl border-2 border-white/70 hover:bg-orange-500 transition-all duration-100 hover:scale-110 bg-[#fda400]  ">
+          <a href="#assignment"  className="px-2 text-sm md:px-6 lg:px-10 text-black/90  font-semibold md:text-xl py-1 md:py-2 lg:py-4 rounded-xl border-2 border-white/70 hover:bg-orange-500 transition-all duration-100 hover:scale-110 bg-[#fda400]  ">
             Explore Now{" "}
-          </button>
+          </a>
         </div>
       </div>
     </Fade>

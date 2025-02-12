@@ -38,6 +38,12 @@ function Navbar() {
               ""
             )}
           </li>
+          <li>
+            <NavLink to={`aboutUs`}>About us </NavLink> 
+          </li>
+          <li>
+            <NavLink to={`contactUs`}>Contact us </NavLink> 
+          </li>
         </ul>
       </div>
       <div className="navbar-end">
@@ -185,6 +191,12 @@ function Navbar() {
                 </div>
               )}
             </li>
+            <li>
+            <NavLink to={`aboutUs`}>About us </NavLink> 
+          </li>
+          <li>
+            <NavLink to={`contactUs`}>Contact us </NavLink> 
+          </li>
            <li>
            <button onClick={ handleTheme} className="   shadow-none ml-2 border-none bg-transparent  mx-2">
           {theme === "light" ?   <svg

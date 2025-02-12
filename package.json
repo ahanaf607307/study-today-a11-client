@@ -13,6 +13,7 @@
     "@emotion/react": "^11.13.5",
     "axios": "^1.7.9",
     "firebase": "^11.1.0",
+    "flowbite-react": "^0.10.2",
     "lottie-react": "^2.4.0",
     "motion": "^11.15.0",
     "prop-types": "^15.8.1",
