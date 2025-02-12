@@ -80,7 +80,7 @@ function Register() {
       </label>
       <label className="form-control w-full ">
         <div className="label">
-          <span className="label-text text-white/90">Photo Url</span>
+          <span className="label-text text-white/90">Photo URL</span>
         </div>
         <input
           type="url"
