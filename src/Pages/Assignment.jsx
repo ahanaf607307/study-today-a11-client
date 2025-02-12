@@ -62,7 +62,7 @@ const [loadingSpinner, setLoadingSpinner] = useState(true)
      
     </div>
 
-  <div className='my-10  max-w-7xl mx-auto'>
+  <div className='my-10  '>
   <h1 className='text-3xl md:text-4xl lg:text-5xl text-center font-bold text-orange-500'> POPULAR ASSIGNMENT'S
    </h1>
    <h1 className='text-md text-center font-bold text-black/60 mt-5'> We have monthly 1000+ request to be joined assignment's exm.
@@ -72,7 +72,7 @@ const [loadingSpinner, setLoadingSpinner] = useState(true)
 
     
     {
-      loadingSpinner ? <Loading/> : <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10 mb-10'>
+      loadingSpinner ? <Loading/> : <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10 mb-10 max-w-7xl mx-auto'>
       {
         assignments?.map(card => <AssignCard key={card?._id} card={card} handleDelete={handleDelete}/>)
       }
