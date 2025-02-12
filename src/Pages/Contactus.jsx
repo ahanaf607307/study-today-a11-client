@@ -1,5 +1,6 @@
 import { FloatingLabel, Textarea } from 'flowbite-react';
 import React from 'react';
+import { Slide } from 'react-awesome-reveal';
 import { FaLocationDot, FaPhone } from 'react-icons/fa6';
 import { MdAttachEmail } from 'react-icons/md';
 import Swal from 'sweetalert2';
@@ -19,15 +20,16 @@ const Contactus = () => {
         <div id='contact' className='min-h-screen bg-assignmentBg bg-cover bg-center  '>
        <div className='bg-black/70 min-h-screen pt-44'>
        <div className='max-w-4xl mx-auto '>
-        <div className='text-center font-bannerFont'>
+        <Slide direction="down" cascade><div className='text-center font-bannerFont'>
          <h1 className=' text-white/90 text-3xl pt-14 md:text-4xl lg:text-5xl mb-2'>
            “We’re Here to Help”
          </h1>
          <p className={`text-white/90 pt-3 px-4 md:px-20 lg:px-56 `}>“Feel free to reach out to us for any questions, support, or feedback. Our team is always ready to assist you.”</p>
-       </div>
+       </div></Slide>
+        
        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center py-20 px-4'>
          {/* left */}
-         <div className='text-white/90'>
+         <Slide direction="left" cascade><div className='text-white/90'>
            <div className='flex  items-center gap-x-3 my-8'>
            <FaPhone className='text-3xl mr-2'/> 
            <div>
@@ -53,9 +55,11 @@ const Contactus = () => {
              <p className='text-lg font-bannerFont'> Rangpur , Bangladesh</p>
            </div>
             </div>
-         </div>
+         </div></Slide>
+         
          {/* right side */}
-         <div className=''>
+         <Slide direction="right" cascade>
+          <div className=''>
            <form onSubmit={handleContact}   className='flex flex-col justify-center gap-y-3'>
            <FloatingLabel variant="filled" label="Full Name" required/>
            <FloatingLabel variant="filled" label="Email " required/>
@@ -63,7 +67,10 @@ const Contactus = () => {
          <button type='submit' className='text-white/90 font-semibold hover:scale-105  bg-[#fda400] rounded-xl px-3 py-3  duration-100'> Submit </button>
            </form>
          </div>
+         </Slide>
+         
        </div>
+       
         </div>
        </div>
        </div>

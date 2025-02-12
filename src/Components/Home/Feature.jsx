@@ -1,5 +1,5 @@
 import React from 'react'
-import { Fade } from 'react-awesome-reveal'
+import { Fade, Slide } from 'react-awesome-reveal'
 import { FaUsers } from 'react-icons/fa'
 import { FaPeopleGroup } from 'react-icons/fa6'
 import { GiProgression } from 'react-icons/gi'
@@ -30,7 +30,7 @@ function Feature() {
   
   <div class="grid gird-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3  mt-14 p-4">
     {/* <!-- Feature 1 --> */}
-   <Fade>
+   <Slide direction="left" cascade>
    <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
@@ -45,9 +45,9 @@ function Feature() {
    <p className='text-md text-white/90 mt-2'>Include file attachments and grading rubrics for detailed evaluations</p>
   </div>
 </div>
-   </Fade>
+   </Slide>
     {/* <!-- Feature 2 --> */}
-    <Fade>
+    <Slide direction="down" cascade>
     <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
@@ -62,9 +62,9 @@ function Feature() {
    <p className='text-md text-white/90 mt-2'>Feedback and grading reports are shared transparently.</p>
   </div>
 </div>
-    </Fade>
+    </Slide>
     {/* <!-- Feature 3 --> */}
-    <Fade>
+    <Slide direction="right" cascade>
     <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
@@ -81,9 +81,9 @@ function Feature() {
     {/* <!-- Feature 4 --> */}
 </div>
 
-    </Fade>
+    </Slide>
 {/* feature 4 */}
-    <Fade>
+    <Slide direction="left" cascade>
     <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
@@ -98,10 +98,10 @@ function Feature() {
    <p className='text-md text-white/90 mt-2'>Supports multimedia sharing for effective communication.</p>
   </div>
 </div>
-    </Fade>
+    </Slide>
 
   {/* <!-- Feature 5 --> */}
-    <Fade>
+    <Slide direction="up" cascade>
     <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
@@ -117,9 +117,9 @@ function Feature() {
   </div>
     {/* <!-- Feature 6 --> */}
 </div>
-    </Fade>
+    </Slide>
 {/* features 6 */}
-    <Fade>
+    <Slide direction="right" cascade>
     <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
@@ -134,7 +134,7 @@ function Feature() {
    <p className='text-md text-white/90 mt-2'>Set privacy options to make groups public, private, or invitation-only.</p>
   </div>
 </div>
-    </Fade>
+    </Slide>
   </div>
 </section>
    </div>

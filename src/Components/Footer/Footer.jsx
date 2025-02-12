@@ -20,6 +20,7 @@ function Footer() {
     
   </nav>
 </footer>
+<h1 className='text-center text-black font-bold bg-[#fda400] pb-8'>Copyright © 2025 - All right reserved by Ahanaf Mubasshir Rishad</h1>
     </div>
   )
 }

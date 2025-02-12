@@ -1,4 +1,5 @@
 import React from 'react'
+import { Slide } from 'react-awesome-reveal'
 import groupImage from '../../assets/group/fSix.png'
 
 function Group() {
@@ -11,13 +12,18 @@ function Group() {
       Achieve Them. Get rewarded.</h1>
 
       <div className='grid gap-x-10 gap-y-4 lg:grid-cols-2 justify-center items-center pt-8'>
-        <div className='h-[400px]'>
+        <Slide direction="left" cascade>
+          <div className='h-[400px]'>
            <img className='h-full rounded-xl' src={groupImage} alt="" />
         </div>
-        <div className='px-3'> 
+        </Slide>
+        <Slide direction="right" cascade>
+          <div className='px-3'> 
             <h1 className='text-4xl font-semibold font-cardFont text-orange-500 text-center md:text-start'>Stronger together 💪</h1>
             <p className='text-md font-semibold text-gray-500 my-4'>Imagine a world in which studying is actually enjoyable. A world where you set goals and actually accomplish them. Where you find guidance where you need it, and you feel supported. Where you see progress and can celebrate your achievements alongside thousands of peers - where someone is always there for you! OK - enough imagining - welcome to StudyTogether.</p>
         </div>
+        </Slide>
+        
       </div>
     </div>
    </div>
