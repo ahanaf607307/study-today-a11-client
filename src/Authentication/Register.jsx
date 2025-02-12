@@ -121,7 +121,7 @@ function Register() {
       />
     </form>
     <h1 className='my-2 text-red-600 mx-auto text-lg'>{errorInvalid} </h1>
-    <h1 className="my-10 font-semibold text-xl">
+    <h1 className="my-10 text-black font-semibold text-xl">
       Already Have an account  ?{" "}
       <Link className="text-red-600 underline" to="/login">
         Login
