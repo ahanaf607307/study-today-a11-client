@@ -3,6 +3,7 @@ import Banner from './Banner'
 import Faq from './Faq'
 import Feature from './Feature'
 import Group from './Group'
+import Review from './Review'
 
 function Home() {
 
@@ -15,6 +16,9 @@ function Home() {
       <Faq/>
     <div className=''>
     <Group/>
+    </div>
+    <div className=''>
+    <Review/>
     </div>
     </div>
   )
