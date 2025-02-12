@@ -113,7 +113,7 @@ function Feature() {
   <h1 className='text-3xl font-bold text-[#fda400] '>Leaderboards </h1>
    <p className='text-md text-white/90 mt-2'>Encourage healthy competition with leaderboards for top performers.
    </p>
-   <p className='text-md text-white/90 mt-2'>Unlock badges and rewards for milestones like consistent grading .</p>
+   <p className='text-md text-white/90 mt-2'>Unlock badges and rewards for milestones like consistent grading.</p>
   </div>
     {/* <!-- Feature 6 --> */}
 </div>
