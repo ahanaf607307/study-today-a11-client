@@ -8,7 +8,7 @@ function Group() {
 
 <div className='flex flex-col justify-center items-center font-cardFont max-w-7xl mx-auto pb-24'>
         <p className='text-center font-semibold text-md  my-3'>Not just a study stream room</p>
-      <h1 className='text-center font-bold text-orange-600 text-3xl px-1 md:text-4xl  md:w-9/12 py-8'>Find your community. Set Goals.
+      <h1 className='text-center font-bold text-[#ff5e3b] text-3xl px-1 md:text-4xl  md:w-9/12 py-8'>Find your community. Set Goals.
       Achieve Them. Get rewarded.</h1>
 
       <div className='grid gap-x-10 gap-y-4 lg:grid-cols-2 justify-center items-center pt-8'>
