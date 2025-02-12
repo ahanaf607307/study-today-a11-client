@@ -117,7 +117,7 @@ function Register() {
       <input
         type="submit"
         value="Register"
-        className="btn w-full bg-blue-500 my-5 text-white font-semibold"
+        className="btn w-full bg-[#fda400] my-5 text-white font-semibold"
       />
     </form>
     <h1 className='my-2 text-red-600 mx-auto text-lg'>{errorInvalid} </h1>

@@ -118,8 +118,8 @@ const faildLoginAlert = () => {
         />
       </form>
       <h1 className="my-3 text-red-600 mx-auto text-lg">{errorInvalid} </h1>
-      <button onClick={handleGoogleLogin} className="btn mt-5  bg-[#6dbd22de]">
-        <IoLogoGoogleplus className="text-[#f5da3f] text-xl" /> Login With
+      <button onClick={handleGoogleLogin} className="btn mt-5  bg-[#fda400]">
+        <IoLogoGoogleplus className="text-[#f13030] text-xl" /> Login With
         Google
       </button>
       <h1 className="my-10">

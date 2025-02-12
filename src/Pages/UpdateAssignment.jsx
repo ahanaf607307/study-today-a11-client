@@ -201,7 +201,7 @@ const navigate = useNavigate()
           </label>
           <input
             type="submit"
-            className="btn bg-[#a9e224] w-full my-5"
+            className="btn bg-[#fda400] w-full my-5"
             value="Update"
           />
         </form>

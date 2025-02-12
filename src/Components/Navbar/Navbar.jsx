@@ -53,14 +53,14 @@ function Navbar() {
           ) : (
             <div className="flex gap-x-3">
               <Link
-                className="border  px-3 py-1 rounded-xl font-semibold"
+                className="border text-black  px-3 py-1 rounded-xl font-semibold"
                 to="/login"
               >
                 Login
               </Link>
               <Link
                 to="/register"
-                className="border  px-3 py-1 rounded-xl font-semibold"
+                className="border text-black px-3 py-1 rounded-xl font-semibold"
               >
                 Register
               </Link>
@@ -94,7 +94,7 @@ function Navbar() {
                   <img referrerPolicy="no-referrer" alt="profile picture" src={user?.photoURL} />
                 </div>
               ) : (
-                <FaUserTimes className="w-12" />
+                <FaUserTimes className="w-12 text-black" />
               )}
             </div>
           </div>
@@ -177,14 +177,14 @@ function Navbar() {
               ) : (
                 <div className="flex flex-col gap-y-3 ">
                   <Link
-                    className="border  px-3 py-1 rounded-xl font-semibold"
+                    className="border text-black px-3 py-1 rounded-xl font-semibold"
                     to="/login"
                   >
                     Login
                   </Link>
                   <Link
                     to="/register"
-                    className="border  px-3 py-1 rounded-xl font-semibold"
+                    className="border text-black px-3 py-1 rounded-xl font-semibold"
                   >
                     Register
                   </Link>

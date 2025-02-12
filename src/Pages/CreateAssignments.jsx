@@ -141,10 +141,10 @@ function CreateAssignments() {
           onChange={(date) => setStartDate(date)}
         />
       </label>
-      {error && <p className="text-lime-500">{error}</p>}
+      {error && <p className="text-[#fda400]">{error}</p>}
           <input
             type="submit"
-            className="btn bg-[#71ca1e] text-white/90 w-full my-5"
+            className="btn bg-[#fda400] text-white/90 w-full my-5"
             value="Create Assignment"
           />
         </form>
