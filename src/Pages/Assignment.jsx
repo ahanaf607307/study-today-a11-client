@@ -1,14 +1,17 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Fade } from 'react-awesome-reveal';
 import Swal from "sweetalert2";
 import Loading from '../Authentication/Loading';
 import useCustomAxiosSecure from '../Components/CustomHook/CustomAxios';
 import AssignCard from './AssignCard';
+import  { AuthContext } from '../Context/AuthProvider';
+import { Link } from 'react-router-dom';
 
 
 function Assignment() {
 const [assignments , setAssignments] = useState([])
+  const { user } = useContext(AuthContext);
 const customAxiosSecure = useCustomAxiosSecure()
 const [loadingSpinner, setLoadingSpinner] = useState(true)
 
@@ -72,11 +75,13 @@ const [loadingSpinner, setLoadingSpinner] = useState(true)
 
     
     {
-      loadingSpinner ? <Loading/> : <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10 mb-10 max-w-7xl mx-auto'>
-      {
-        assignments?.map(card => <AssignCard key={card?._id} card={card} handleDelete={handleDelete}/>)
-      }
-    </div>
+      user ? <>{
+        loadingSpinner ? <Loading/> : <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10 mb-10 max-w-7xl mx-auto'>
+        {
+          assignments?.map(card => <AssignCard key={card?._id} card={card} handleDelete={handleDelete}/>)
+        }
+      </div>
+      }</> : <Link className='flex justify-center items-center btn my-10 bg-yellow-400 text-white hover:text-black' to='/login'>Login Now</Link>
     }
     </div>
     </Fade>

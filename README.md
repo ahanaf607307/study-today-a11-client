@@ -4,7 +4,7 @@
 
 ## Live Link
 
-## 🔗 Links https://assignment11-56371.web.app/
+## 🔗 Links https://study-today1.web.app/
 
 ---
 

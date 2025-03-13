@@ -30,7 +30,7 @@ function Feature() {
   
   <div class="grid gird-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3  mt-14 p-4">
     {/* <!-- Feature 1 --> */}
-   <Slide direction="left" cascade>
+   <Slide direction="down" cascade>
    <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
@@ -64,7 +64,7 @@ function Feature() {
 </div>
     </Slide>
     {/* <!-- Feature 3 --> */}
-    <Slide direction="right" cascade>
+    <Slide direction="down" cascade>
     <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
@@ -83,7 +83,7 @@ function Feature() {
 
     </Slide>
 {/* feature 4 */}
-    <Slide direction="left" cascade>
+    <Slide direction="up" cascade>
     <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
@@ -119,7 +119,7 @@ function Feature() {
 </div>
     </Slide>
 {/* features 6 */}
-    <Slide direction="right" cascade>
+    <Slide direction="up" cascade>
     <div className="card bg-base-100    image-full h-fit   shadow-xl">
   <figure>
     <img
