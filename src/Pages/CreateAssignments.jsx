@@ -68,88 +68,119 @@ function CreateAssignments() {
 
  
   return (
-    <div className="px-1">
-      <h1 className="text-2xl md:text-4xl lg:text-5xl text-center text-orange-600 font-semibold md:my-8">
-        Create Your Assignment
-      </h1>
-      <div className="md:w-[500px] lg:w-[800px] w-full  mx-auto border-2 shadow-xl p-5 my-10 rounded-xl bg-no-repeat bg-center  bg-cover bg-updatebg ">
-        <form onSubmit={handleAssignmentSubmit}>
-          <label className="form-control w-full  ">
-            <div className="label">
-              <span className="label-text">Title</span>
-            </div>
-            <input
-              type="text"
-              name="title"
-              placeholder="Title"
-              className="input input-bordered w-full  "
-            />
-          </label>
-          <label className="form-control w-full  ">
-            <div className="label">
-              <span className="label-text">Description</span>
-            </div>
-            <textarea
-              type="text"
-              name="description"
-              placeholder="Description"
-              className="input input-bordered w-full  "
-            />
-          </label>
-
-          <label className="form-control w-full  ">
-            <div className="label">
-              <span className="label-text">Mark's</span>
-            </div>
-            <input
-              type="number"
-              name="marks"
-              placeholder="Mark's"
-              className="input input-bordered w-full  "
-            />
-          </label>
-          <label className="form-control w-full  ">
-            <div className="label">
-              <span className="label-text">Thumbnail Image URL</span>
-            </div>
-            <input
-              type="url"
-              name="imageUrl"
-              placeholder="Thumbnail Image URL"
-              className="input input-bordered w-full  "
-            />
-          </label>
-          <label className="form-control w-full  ">
-            <div className="label">
-              <span className="label-text">Assignment Difficulty Level</span>
-            </div>
-            <select name="selectValue" className="border px-3 py-3 rounded-xl">
-              <option>Select One</option>
-              <option value="Easy"> Easy </option>
-              <option value="Medium"> Medium </option>
-              <option value="Hard"> Hard </option>
-            </select>
-          </label>
-
-          <label className="form-control w-full">
-        <div className="label">
-          <span className="label-text">Date</span>
-        </div>
-        <DatePicker
-          className="border px-3 py-3 rounded-xl w-full cursor-pointer"
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-        />
-      </label>
-      {error && <p className="text-[#fda400]">{error}</p>}
-          <input
-            type="submit"
-            className="btn bg-[#fda400] text-white/90 w-full my-5"
-            value="Create Assignment"
-          />
-        </form>
+    <div className="px-4 mt-20 py-10 bg-white min-h-screen">
+    {/* Heading */}
+    <h1 className="text-3xl md:text-4xl lg:text-5xl text-center text-orange-600 font-bold mb-6">
+      Create Your Assignment
+    </h1>
+  
+    {/* Extra Info Section */}
+    <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-10">
+      <div className="p-5 border rounded-xl shadow hover:shadow-lg transition-all">
+        <h3 className="text-lg font-semibold text-orange-500">📘 Study Type</h3>
+        <p className="text-sm text-gray-600 mt-2">
+          Create assignments for group study, self-practice or quiz-based tasks.
+        </p>
+      </div>
+      <div className="p-5 border rounded-xl shadow hover:shadow-lg transition-all">
+        <h3 className="text-lg font-semibold text-orange-500">📍 Instructions</h3>
+        <p className="text-sm text-gray-600 mt-2">
+          Provide specific learning goals or rules students should follow.
+        </p>
+      </div>
+      <div className="p-5 border rounded-xl shadow hover:shadow-lg transition-all">
+        <h3 className="text-lg font-semibold text-orange-500">🔗 Reference</h3>
+        <p className="text-sm text-gray-600 mt-2">
+          Suggest resources (YouTube/Docs/Books) to help with the assignment.
+        </p>
       </div>
     </div>
+  
+    {/* Assignment Form */}
+    <div className="md:w-[500px] lg:w-[800px] w-full mx-auto border border-gray-200 shadow-xl p-8 rounded-2xl bg-white">
+      <form onSubmit={handleAssignmentSubmit}>
+        <label className="form-control w-full">
+          <div className="label">
+            <span className="label-text">Title</span>
+          </div>
+          <input
+            type="text"
+            name="title"
+            placeholder="Title"
+            className="input input-bordered w-full"
+          />
+        </label>
+  
+        <label className="form-control w-full">
+          <div className="label">
+            <span className="label-text">Description</span>
+          </div>
+          <textarea
+            type="text"
+            name="description"
+            placeholder="Description"
+            className="input input-bordered w-full"
+          />
+        </label>
+  
+        <label className="form-control w-full">
+          <div className="label">
+            <span className="label-text">Mark's</span>
+          </div>
+          <input
+            type="number"
+            name="marks"
+            placeholder="Mark's"
+            className="input input-bordered w-full"
+          />
+        </label>
+  
+        <label className="form-control w-full">
+          <div className="label">
+            <span className="label-text">Thumbnail Image URL</span>
+          </div>
+          <input
+            type="url"
+            name="imageUrl"
+            placeholder="Thumbnail Image URL"
+            className="input input-bordered w-full"
+          />
+        </label>
+  
+        <label className="form-control w-full">
+          <div className="label">
+            <span className="label-text">Assignment Difficulty Level</span>
+          </div>
+          <select name="selectValue" className="border px-3 py-3 rounded-xl">
+            <option>Select One</option>
+            <option value="Easy"> Easy </option>
+            <option value="Medium"> Medium </option>
+            <option value="Hard"> Hard </option>
+          </select>
+        </label>
+  
+        <label className="form-control w-full">
+          <div className="label">
+            <span className="label-text">Date</span>
+          </div>
+          <DatePicker
+            className="border px-3 py-3 rounded-xl w-full cursor-pointer"
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+          />
+        </label>
+  
+        {error && <p className="text-[#fda400]">{error}</p>}
+  
+        <input
+          type="submit"
+          className="btn bg-orange-600 hover:bg-orange-700 text-white font-semibold w-full my-5"
+          value="Create Assignment"
+        />
+      </form>
+    </div>
+  </div>
+  
   );
 }
 

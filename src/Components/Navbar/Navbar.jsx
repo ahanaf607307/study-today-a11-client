@@ -8,216 +8,114 @@ function Navbar() {
   const { user, logOutUser } = useContext(AuthContext);
 
   // Theme Change for challenge 
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-  const  handleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+  // const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  // useEffect(() => {
+  //   document.documentElement.setAttribute("data-theme", theme);
+  //   localStorage.setItem("theme", theme);
+  // }, [theme]);
+  // const  handleTheme = () => {
+  //   setTheme(theme === "light" ? "dark" : "light");
+  // };
   return (
-    <div className="navbar  h-20 fixed top-0 z-50 bg-[#fda400]  md:px-10 lg:px-16">
-      <div className="navbar-start">
-        <Link className=" w-24 ">
-          <img className="h-7" src={logoImage} alt="logo" />
+    <div className="navbar h-20 fixed top-0 z-50 backdrop-blur-lg bg-white/70 border-b border-gray-200 md:px-10 lg:px-16 shadow-sm">
+  <div className="navbar-start">
+    <Link className="w-24">
+      <img className="h-7" src={logoImage} alt="logo" />
+    </Link>
+  </div>
+
+  <div className="navbar-center hidden lg:flex">
+    <ul className="menu menu-horizontal lg:flex gap-x-5 text-gray-800 font-semibold">
+      <li><NavLink to="/">Home</NavLink></li>
+      <li><NavLink to="/assignment">Assignments</NavLink></li>
+      {user && <li><NavLink to="/pendingAssignments">Pending Assignments</NavLink></li>}
+      <li><NavLink to="/aboutUs">About us</NavLink></li>
+      <li><NavLink to="/contactUs">Contact us</NavLink></li>
+    </ul>
+  </div>
+
+  <div className="navbar-end gap-x-3 hidden lg:flex items-center">
+    {!user && (
+      <div className="flex gap-x-3">
+        <Link className="border px-3 py-1 rounded-lg text-gray-700 hover:bg-gray-100 transition" to="/login">
+          Login
+        </Link>
+        <Link className="border px-3 py-1 rounded-lg text-gray-700 hover:bg-gray-100 transition" to="/register">
+          Register
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul id="navbar" className="menu menu-horizontal lg:flex gap-x-5 gap-y-2 text-black/90 font-bold">
-          <li>
-            <NavLink to="/">Home </NavLink>
-          </li>
-          <li>
-            <NavLink to={`assignment`}>Assignments </NavLink> 
-          </li>
-          <li>
-            {user ? (
-              <NavLink to="/pendingAssignments">Pending Assignments </NavLink>
-            ) : (
-              ""
-            )}
-          </li>
-          <li>
-            <NavLink to={`aboutUs`}>About us </NavLink> 
-          </li>
-          <li>
-            <NavLink to={`contactUs`}>Contact us </NavLink> 
-          </li>
-        </ul>
-      </div>
-      <div className="navbar-end">
-        <div className=" gap-x-3 hidden lg:flex">
+    )}
+    {/* <button onClick={handleTheme} className="ml-2">
+      {theme === "light" ? (
+        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M21.64,13a1,1,0..." />
+        </svg>
+      ) : (
+        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M5.64,17l..." />
+        </svg>
+      )}
+    </button> */}
+
+    <div className="dropdown dropdown-end">
+      <div className="tooltip tooltip-left" data-tip={user?.displayName}>
+        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
           {user ? (
-            ""
-          ) : (
-            <div className="flex gap-x-3">
-              <Link
-                className="border text-black  px-3 py-1 rounded-xl font-semibold"
-                to="/login"
-              >
-                Login
-              </Link>
-              <Link
-                to="/register"
-                className="border text-black px-3 py-1 rounded-xl font-semibold"
-              >
-                Register
-              </Link>
+            <div className="w-10 rounded-full">
+              <img referrerPolicy="no-referrer" alt="profile" src={user?.photoURL} />
             </div>
+          ) : (
+            <FaUserTimes className="w-6 text-gray-600" />
           )}
         </div>
-        <button onClick={ handleTheme} className=" hidden md:block  shadow-none ml-2 border-none bg-transparent  mx-2">
-          {theme === "light" ?   <svg
-    className="swap-on fill-current w-6 h-6  "
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24">
-    <path
-      d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
-  </svg>   :  <svg
-    className="swap-off fill-current w-6 h-6 "
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24">
-    <path
-      d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
-  </svg> }
-        </button>
-        <div className="dropdown dropdown-end">
-          <div className="tooltip tooltip-left" data-tip={user?.displayName}>
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              {user ? (
-                <div className="w-10 rounded-full">
-                  <img referrerPolicy="no-referrer" alt="profile picture" src={user?.photoURL} />
-                </div>
-              ) : (
-                <FaUserTimes className="w-12 text-black" />
-              )}
-            </div>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-          >
-            <li>
-              {user ? (
-                <NavLink to={`createAssignments`}>Create Assignments </NavLink>
-              ) : (
-                ""
-              )}
-            </li>
-            <li>
-              {user ? <NavLink to="/myAttempted">My Attempted </NavLink> : ""}
-            </li>
-            <li>
-              {user ? (
-                <button onClick={() => logOutUser()}>Logout</button>
-              ) : (
-                <div className="flex flex-col justify-start gap-x-3">
-                  <Link
-                    className="border  px-3 py-1 rounded-xl font-semibold"
-                    to="/login"
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    to="/register"
-                    className="border  px-3 py-1 rounded-xl font-semibold"
-                  >
-                    Register
-                  </Link>
-                </div>
-              )}
-            </li>
-          </ul>
-        </div>
-
-        {/* hambarger menu bar  */}
-        <div className="dropdown relative">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            id="navbar"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-32 p-2 shadow absolute right-0"
-          >
-            <li>
-              <NavLink to="/">Home </NavLink>
-            </li>
-            <li>
-             <NavLink to={`assignment`}>Assignments </NavLink> 
-            </li>
-            <li>
-              {user ? (
-                <NavLink to="/pendingAssignments">Pending Assignments </NavLink>
-              ) : (
-                ""
-              )}
-            </li>
-            <li>
-              {user ? (
-                <button onClick={() => logOutUser()}>Logout</button>
-              ) : (
-                <div className="flex flex-col gap-y-3 ">
-                  <Link
-                    className="border text-black px-3 py-1 rounded-xl font-semibold"
-                    to="/login"
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    to="/register"
-                    className="border text-black px-3 py-1 rounded-xl font-semibold"
-                  >
-                    Register
-                  </Link>
-                </div>
-              )}
-            </li>
-            <li>
-            <NavLink to={`aboutUs`}>About us </NavLink> 
-          </li>
-          <li>
-            <NavLink to={`contactUs`}>Contact us </NavLink> 
-          </li>
-           <li>
-           <button onClick={ handleTheme} className="   shadow-none ml-2 border-none bg-transparent  mx-2">
-          {theme === "light" ?   <svg
-    className="swap-on fill-current w-6 h-6  "
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24">
-    <path
-      d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
-  </svg>   :  <svg
-    className="swap-off fill-current w-6 h-6 "
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24">
-    <path
-      d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
-  </svg> }
-        </button>
-           </li>
-          </ul>
-        </div>
       </div>
+      <ul tabIndex={0} className="menu menu-sm dropdown-content bg-white rounded-box mt-3 w-52 p-2 shadow-lg border">
+        {user && <li><NavLink to="/createAssignments">Create Assignments</NavLink></li>}
+        {user && <li><NavLink to="/myAttempted">My Attempted</NavLink></li>}
+        <li>
+          {user ? (
+            <button onClick={logOutUser}>Logout</button>
+          ) : (
+            <div className="flex flex-col gap-2">
+              <Link className="border px-3 py-1 rounded-lg text-gray-700" to="/login">Login</Link>
+              <Link className="border px-3 py-1 rounded-lg text-gray-700" to="/register">Register</Link>
+            </div>
+          )}
+        </li>
+      </ul>
     </div>
+
+    {/* Mobile Menu */}
+    <div className="dropdown lg:hidden">
+      <div tabIndex={0} role="button" className="btn btn-ghost">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+        </svg>
+      </div>
+      <ul tabIndex={0} className="menu menu-sm dropdown-content bg-white rounded-box mt-3 w-40 p-2 shadow-lg border right-0 absolute z-50">
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/assignment">Assignments</NavLink></li>
+        {user && <li><NavLink to="/pendingAssignments">Pending Assignments</NavLink></li>}
+        <li><NavLink to="/aboutUs">About us</NavLink></li>
+        <li><NavLink to="/contactUs">Contact us</NavLink></li>
+        <li>
+          {user ? (
+            <button onClick={logOutUser}>Logout</button>
+          ) : (
+            <div className="flex flex-col gap-2">
+              <Link className="border px-3 py-1 rounded-lg text-gray-700" to="/login">Login</Link>
+              <Link className="border px-3 py-1 rounded-lg text-gray-700" to="/register">Register</Link>
+            </div>
+          )}
+        </li>
+        {/* <li>
+          <button onClick={handleTheme} className="mt-1">{theme === "light" ? "🌙" : "☀️"}</button>
+        </li> */}
+      </ul>
+    </div>
+  </div>
+</div>
+
   );
 }
 

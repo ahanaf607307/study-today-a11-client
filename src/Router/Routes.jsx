@@ -1,8 +1,6 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../Authentication/Login";
-
-import About from "../../About";
 import PrivateRoute from "../Authentication/PrivateRoute";
 import Register from "../Authentication/Register";
 import ErrorElement from "../Components/Error/ErrorElement";
@@ -17,6 +15,7 @@ import PendingAssignments from "../Pages/PendingAssignments";
 import TakeAssignment from "../Pages/TakeAssignment";
 import UpdateAssignment from "../Pages/UpdateAssignment";
 import Contactus from "../Pages/Contactus";
+import Aboutus from "../Components/Home/Aboutus";
 
 const routes = createBrowserRouter([
   { errorElement: <ErrorElement/>,
@@ -61,7 +60,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/aboutUs",
-        element:<About/>,
+        element:<Aboutus/>,
       },
       {
         path: "/contactUs",

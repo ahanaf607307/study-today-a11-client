@@ -3,25 +3,44 @@ import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
-    <div>
-     <footer className="footer bg-[#fda400] text-black p-10">
-  <nav>
-  <Link to='/contactUs' className="link link-hover">Contact us</Link>
-  <Link to='/aboutUs' className="link link-hover">About us</Link>
-  </nav>
-  <nav>
+    <div className=" bg-white border-t">
+  <footer className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-6 py-12 text-gray-700 font-medium">
 
-  <Link to='/createAssignments' className="link link-hover">Create Assignment</Link>
-  <Link to='/myAttempted' className="link link-hover">My Attempted</Link>
-  </nav>
-  <nav>
-  <Link to='/assignment' className="link link-hover">Assignment</Link>
-  <Link to='/pendingAssignments' className="link link-hover">Pending Assignments</Link>
-    
-  </nav>
-</footer>
-<h1 className='text-center text-black font-bold bg-[#fda400] pb-8'>Copyright © 2025 - All right reserved by Ahanaf Mubasshir Rishad</h1>
+    {/* Contact & About */}
+    <div>
+      <h3 className="text-lg font-semibold mb-3">Company</h3>
+      <ul className="space-y-2">
+        <li><Link to="/contactUs" className="hover:text-orange-500 transition">Contact Us</Link></li>
+        <li><Link to="/aboutUs" className="hover:text-orange-500 transition">About Us</Link></li>
+      </ul>
     </div>
+
+    {/* Assignment Features */}
+    <div>
+      <h3 className="text-lg font-semibold mb-3">Features</h3>
+      <ul className="space-y-2">
+        <li><Link to="/createAssignments" className="hover:text-orange-500 transition">Create Assignment</Link></li>
+        <li><Link to="/myAttempted" className="hover:text-orange-500 transition">My Attempted</Link></li>
+      </ul>
+    </div>
+
+    {/* Assignment Navigation */}
+    <div>
+      <h3 className="text-lg font-semibold mb-3">Assignments</h3>
+      <ul className="space-y-2">
+        <li><Link to="/assignment" className="hover:text-orange-500 transition">All Assignments</Link></li>
+        <li><Link to="/pendingAssignments" className="hover:text-orange-500 transition">Pending Assignments</Link></li>
+      </ul>
+    </div>
+
+  </footer>
+
+  {/* Bottom Section */}
+  <div className="border-t text-center py-6 text-sm text-gray-500">
+    © 2025 - All rights reserved by <span className="font-semibold text-gray-800">Ahanaf Mubasshir Rishad</span>
+  </div>
+</div>
+
   )
 }
 

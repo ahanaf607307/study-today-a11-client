@@ -117,97 +117,92 @@ const navigate = useNavigate()
   };
 
   return (
-    <div className="font-cardFont ">
-      
-      <h1 className='text-3xl md:text-4xl lg:text-5xl text-center font-bold text-orange-600'>   Update Your Assignment - {oldData.title}
-      </h1>
-      <div className="md:w-[500px] lg:w-[800px] mx-auto border-2 shadow-xl p-5 my-10 rounded-xl bg-no-repeat bg-center  bg-cover bg-updatebg">
-        {
-          loadingSpinner ? <Loading/> : <form onSubmit={handleAssignmentSubmit}>
-          <label className="form-control w-full  ">
-            <div className="label">
-              <span className="label-text">Title</span>
-            </div>
-            <input
-              type="text"
-              name="title"
-              defaultValue={oldData.title}
-              className="input input-bordered w-full  "
-            />
-          </label>
-          <label className="form-control w-full  ">
-            <div className="label">
-              <span className="label-text">Description</span>
-            </div>
-            <textarea
-              type="text"
-              name="description"
-              defaultValue={oldData.description}
-              className="input input-bordered w-full  "
-            />
-          </label>
-
-          <label className="form-control w-full  ">
-            <div className="label">
-              <span className="label-text">Mark's</span>
-            </div>
-            <input
-              type="text"
-              name="marks"
-              defaultValue={oldData.marks}
-              className="input input-bordered w-full  "
-            />
-          </label>
-          <label className="form-control w-full  ">
-            <div className="label">
-              <span className="label-text">Thumbnail Image URL</span>
-            </div>
-            <input
-              type="url"
-              name="imageUrl"
-              defaultValue={oldData.imageUrl}
-              className="input input-bordered w-full "
-            />
-          </label>
-          <label className="form-control w-full  ">
-            <div className="label">
-              <span className="label-text">Assignment Difficulty Level</span>
-            </div>
-            <select
-              name="selectValue"
-              value={selectedValue}
-              onChange={handleChange}
-              className="border px-3 py-3 rounded-xl"
-            >
-              <option value="" disabled>
-                Select One
-              </option>
-              <option value="Easy">Easy</option>
-              <option value="Medium">Medium</option>
-              <option value="Hard">Hard</option>
-            </select>
-          </label>
-
-          <label className="form-control w-full  ">
-            <div className="label">
-              <span className="label-text">Date</span>
-            </div>
-            <DatePicker
-  className="border px-3 py-3 rounded-xl w-full cursor-pointer"
-  selected={startDate}
-  onChange={(date) => setStartDate(date)}
-/>
-
-          </label>
-          <input
-            type="submit"
-            className="btn bg-[#fda400] w-full my-5"
-            value="Update"
-          />
-        </form>
-        }
-      </div>
+    <div className="font-cardFont px-4 md:px-10 mt-20 lg:px-32 py-10 bg-white text-gray-800">
+    {/* Header Section */}
+    <h1 className="text-3xl md:text-4xl lg:text-5xl text-center font-bold text-orange-600 mb-6">
+      Update Your Assignment - {oldData.title}
+    </h1>
+  
+    {/* Optional Info Section */}
+    <div className="bg-orange-50 border-l-4 border-orange-400 p-5 rounded-xl mb-10 shadow-md">
+      <h2 className="text-xl font-semibold mb-2">📝 Why Update Your Assignment?</h2>
+      <p className="text-sm text-gray-700">
+        Keeping your assignments up-to-date ensures clarity, accuracy, and better communication
+        with students. Make sure to revise marks, deadline, and difficulty as necessary.
+      </p>
     </div>
+  
+    {/* Assignment Update Form */}
+    <div className="max-w-4xl mx-auto border border-gray-300 shadow-xl p-6 rounded-2xl bg-white">
+      {
+        loadingSpinner ? <Loading /> : (
+          <form onSubmit={handleAssignmentSubmit} className="space-y-5">
+            <div>
+              <label className="label-text font-medium">Title</label>
+              <input type="text" name="title" defaultValue={oldData.title} className="input input-bordered w-full" />
+            </div>
+  
+            <div>
+              <label className="label-text font-medium">Description</label>
+              <textarea name="description" defaultValue={oldData.description} className="textarea textarea-bordered w-full h-32" />
+            </div>
+  
+            <div>
+              <label className="label-text font-medium">Marks</label>
+              <input type="text" name="marks" defaultValue={oldData.marks} className="input input-bordered w-full" />
+            </div>
+  
+            <div>
+              <label className="label-text font-medium">Thumbnail Image URL</label>
+              <input type="url" name="imageUrl" defaultValue={oldData.imageUrl} className="input input-bordered w-full" />
+            </div>
+  
+            <div>
+              <label className="label-text font-medium">Assignment Difficulty Level</label>
+              <select name="selectValue" value={selectedValue} onChange={handleChange} className="select select-bordered w-full">
+                <option value="" disabled>Select One</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+            </div>
+  
+            <div>
+              <label className="label-text font-medium">Submission Deadline</label>
+              <DatePicker
+                className="input input-bordered w-full cursor-pointer"
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+              />
+            </div>
+  
+            <input type="submit" className="btn bg-[#fda400] text-white font-semibold w-full" value="Update" />
+          </form>
+        )
+      }
+    </div>
+  
+    {/* Extra Section: Assignment Tips */}
+    <div className="mt-16 p-6 bg-gray-100 rounded-xl shadow-sm">
+      <h2 className="text-2xl font-semibold mb-3">📌 Assignment Update Tips</h2>
+      <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+        <li>Be specific and concise in the description.</li>
+        <li>Update the difficulty based on the new content or criteria.</li>
+        <li>Ensure the deadline is realistic and student-friendly.</li>
+        <li>Use a high-quality thumbnail that reflects the topic.</li>
+      </ul>
+    </div>
+  
+    {/* Extra Section: Submission Guidelines */}
+    <div className="mt-10 p-6 bg-gray-50 rounded-xl shadow-sm">
+      <h2 className="text-2xl font-semibold mb-3">📚 Submission Guidelines</h2>
+      <p className="text-sm text-gray-700">
+        Make sure to check all fields before updating. Once updated, students will receive
+        a notification about the change. Ensure consistency in marks, difficulty level, and deadline.
+      </p>
+    </div>
+  </div>
+  
   );
 }
 

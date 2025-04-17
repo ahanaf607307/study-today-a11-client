@@ -55,15 +55,24 @@ const [loadingSpinner, setLoadingSpinner] = useState(true)
   return (
     <Fade>
       <div className='pt-14'>
-      <div className='mt-6 mb-14 h-[300px]  md:h-[500px] w-full bg-no-repeat bg-center  bg-cover bg-assignmentBg bg-blend-darken '>
-   <div className=' bg-black/60 w-full h-full flex flex-col justify-center items-center '>
-   <h1 className='text-2xl md:text-4xl lg:text-5xl text-center font-bold text-white px-2 md:w-9/12'> Meet, chat, and study with students from all over the world
-   </h1>
-   <h1 className='text-sm md:text-xl text-center font-bold text-white/80 mt-5 w-8/12'> Join the largest global student community online and say goodbye to lack of motivation.
-   </h1>
-   </div>
-     
+      <div className="mt-6 mb-14 h-[300px] md:h-[500px] w-full bg-no-repeat bg-center bg-cover bg-assignmentBg bg-blend-overlay relative">
+  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/80 z-10"></div>
+  
+  <div className="relative z-20 w-full h-full flex flex-col justify-center items-center px-4 text-center">
+    <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-wide leading-tight drop-shadow-md">
+      Empower Your Mind, <br className="hidden md:block" /> Connect Across Continents
+    </h1>
+    <p className="mt-5 text-base md:text-xl text-white/90 max-w-3xl leading-relaxed">
+      Study smart, share knowledge, and grow together in the most vibrant student community on the planet.
+    </p>
+    <div className="mt-8">
+      <button className="bg-white text-black font-semibold px-6 py-2 rounded-full shadow-md hover:bg-[#fda400] hover:text-white transition duration-300">
+        Join Now
+      </button>
     </div>
+  </div>
+</div>
+
 
   <div className='my-10  '>
   <h1 className='text-3xl md:text-4xl lg:text-5xl text-center font-bold text-orange-500'> POPULAR ASSIGNMENT'S
@@ -74,15 +83,12 @@ const [loadingSpinner, setLoadingSpinner] = useState(true)
 
 
     
-    {
-      user ? <>{
-        loadingSpinner ? <Loading/> : <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10 mb-10 max-w-7xl mx-auto'>
+     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10 mb-10 max-w-7xl mx-auto'>
         {
           assignments?.map(card => <AssignCard key={card?._id} card={card} handleDelete={handleDelete}/>)
         }
       </div>
-      }</> : <Link className='flex justify-center items-center btn my-10 bg-yellow-400 text-white hover:text-black' to='/login'>Login Now</Link>
-    }
+     
     </div>
     </Fade>
   )

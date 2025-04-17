@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Fade } from "react-awesome-reveal";
 
-function AssignCard({ card, handleDelete }) {
+function AssignCardLimited({ card, handleDelete }) {
   const { user } = useContext(AuthContext);
   const {
     _id,
@@ -80,4 +80,4 @@ function AssignCard({ card, handleDelete }) {
   );
 }
 
-export default AssignCard;
+export default AssignCardLimited;

@@ -78,56 +78,68 @@ function GiveMark() {
 
   return (
     <Fade fraction={0.5}>
-      <div className="flex flex-col justify-center items-center ">
-        <div className="w-full md:w-96 lg:w-[500px] border-2 shadow-lg my-16 p-5 rounded-2xl">
-          <div>
-         {
-          loadingSpinner ? <Loading/> :  <section> 
-            <a
-          href={oldData?.googleDocs}
-          target="_blank"
-          className="underline font-semibold text-orange-500 text-md"
-        >
-          Open to see Docs link
-        </a>
-        <h1 className="text-xm font-semibold font-cardFont text-gray-500  text-wrap my-2">Note : {oldData?.quickNote}</h1>
-          </section>
-         }
-          </div>
-          <form onSubmit={handleGiveMark} className="w-full ">
-            <label className="form-control w-full  ">
-              <div className="label">
-                <span className="label-text">Give Mark's</span>
-              </div>
-              <input
-                type="number"
-                name="giveMarks"
-                placeholder="Give Marks"
-                required
-                className="input input-bordered w-full  "
-              />
-            </label>
-            <label className="form-control w-full  ">
-              <div className="label">
-                <span className="label-text">Feedback</span>
-              </div>
-              <textarea
-                type="text"
-                name="feedback"
-                placeholder="Write Your Feedback Here "
-                required
-                className="input input-bordered w-full  "
-              />
-            </label>
-            <input
-              type="submit"
-              value="Submit "
-              className="btn bg-orange-600 text-white/90 font-bold font-cardFont w-full mt-5"
-            />
-          </form>
-        </div>
+  <div className="min-h-screen flex items-center justify-center bg-white px-4 py-10">
+    <div className="w-full max-w-lg border border-gray-200 rounded-2xl shadow-xl p-8 bg-white">
+
+      {/* Docs Link and Note */}
+      <div className="mb-6">
+        {
+          loadingSpinner ? (
+            <Loading />
+          ) : (
+            <section>
+              <a
+                href={oldData?.googleDocs}
+                target="_blank"
+                rel="noreferrer"
+                className="underline font-semibold text-orange-600 hover:text-orange-800 text-md"
+              >
+                Open to see Docs link
+              </a>
+              <p className="text-sm text-gray-600 mt-2 font-medium">
+                <span className="font-semibold">Note:</span> {oldData?.quickNote}
+              </p>
+            </section>
+          )
+        }
       </div>
-    </Fade>
+
+      {/* Form */}
+      <form onSubmit={handleGiveMark} className="space-y-5">
+        {/* Marks Input */}
+        <div>
+          <label className="block mb-1 font-semibold text-gray-700">Give Mark's</label>
+          <input
+            type="number"
+            name="giveMarks"
+            placeholder="Enter marks"
+            required
+            className="input input-bordered w-full focus:border-orange-500 focus:outline-none"
+          />
+        </div>
+
+        {/* Feedback Textarea */}
+        <div>
+          <label className="block mb-1 font-semibold text-gray-700">Feedback</label>
+          <textarea
+            name="feedback"
+            placeholder="Write your feedback here..."
+            required
+            className="textarea textarea-bordered w-full h-28 resize-none focus:border-orange-500 focus:outline-none"
+          ></textarea>
+        </div>
+
+        {/* Submit Button */}
+        <input
+          type="submit"
+          value="Submit"
+          className="btn w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold tracking-wide"
+        />
+      </form>
+    </div>
+  </div>
+</Fade>
+
   );
 }
 

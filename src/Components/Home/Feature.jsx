@@ -15,129 +15,79 @@ import fSix from '../../assets/fSix.png'
 
 function Feature() {
   return (
-   <div id="assignment">
-     <section class=" flex flex-col justify-center items-center py-14 font-cardFont max-w-7xl mx-auto">
+    <div id="assignment">
+    <section className="flex flex-col justify-center items-center pb-14 font-cardFont max-w-7xl mx-auto">
   
-  <div class=" text-center">
-
-   <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-[#ff5e3b] ">Key Features of Our Application</h2>
-
-   <h1 className='mt-4'>
-   <Fade>
-   <p class="mt-4 px-2 text-md text-gray-600">These features will make your tasks easier and faster.</p></Fade>
-   </h1>
+      {/* Title Section */}
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#ff5e3b]">
+          Key Features of Our Application
+        </h2>
+        <Fade>
+          <p className="mt-4 px-2 text-md text-gray-600 max-w-2xl mx-auto">
+            These innovative features are designed to enhance your academic workflow and collaboration experience.
+          </p>
+        </Fade>
+      </div>
+  
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+        {/* Reusable Feature Card */}
+        {[
+          {
+            icon: <IoBookSharp />,
+            title: "Assignment Creation",
+            desc1: "Easily create assignments with deadlines, file attachments, and rubrics.",
+            desc2: "Streamlined for quick setup and organized submissions."
+          },
+          {
+            icon: <GrDirections />,
+            title: "Collaborative Grading",
+            desc1: "Empower students to evaluate each other’s work effectively.",
+            desc2: "Feedback remains transparent and accessible to all."
+          },
+          {
+            icon: <GiProgression />,
+            title: "Progress Tracking",
+            desc1: "Real-time dashboards show completed vs. pending tasks.",
+            desc2: "Never miss a deadline with instant alerts."
+          },
+          {
+            icon: <FaUsers />,
+            title: "Discussion Forum",
+            desc1: "Integrated Q&A for each assignment or topic.",
+            desc2: "Encourage academic interaction and collaboration."
+          },
+          {
+            icon: <MdOutlineLeaderboard />,
+            title: "Leaderboards",
+            desc1: "Motivate learners via performance-based rankings.",
+            desc2: "Badges and rewards encourage consistent participation."
+          },
+          {
+            icon: <FaPeopleGroup />,
+            title: "Study Groups",
+            desc1: "Create or join topic-based study groups.",
+            desc2: "Supports private or public collaboration spaces."
+          }
+        ].map((feature, index) => (
+          <Slide key={index} direction="up" cascade>
+            <div className="bg-white border border-gray-200 rounded-2xl shadow-md p-6 flex flex-col justify-between items-center h-[270px] transition-transform hover:scale-[1.02] duration-300">
+              <div className="text-5xl text-orange-500 mb-2 text-center">
+                {feature.icon}
+              </div>
+              <h3 className="text-xl font-semibold text-[#f97316] text-center mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600 text-sm text-center">{feature.desc1}</p>
+              <p className="text-gray-600 text-sm text-center mt-1">{feature.desc2}</p>
+            </div>
+          </Slide>
+        ))}
+      </div>
+    </section>
   </div>
   
-  <div class="grid gird-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3  mt-14 p-4">
-    {/* <!-- Feature 1 --> */}
-   <Slide direction="down" cascade>
-   <div className="card bg-base-100    image-full h-fit   shadow-xl">
-  <figure>
-    <img
-      src={fOne}
-      alt="features pic" />
-  </figure>
-  <div className="card-body">
-      <h1 className='text-7xl text-orange-500  my-2 text-center'><IoBookSharp /></h1>
-   <h1 className='text-3xl font-bold text-[#fda400] '>Assignment Creation</h1>
-   <p className='text-md text-white/90 mt-2'>Users can create assignments, add instructions, and set deadlines for submission.
-   </p>
-   <p className='text-md text-white/90 mt-2'>Include file attachments and grading rubrics for detailed evaluations</p>
-  </div>
-</div>
-   </Slide>
-    {/* <!-- Feature 2 --> */}
-    <Slide direction="down" cascade>
-    <div className="card bg-base-100    image-full h-fit   shadow-xl">
-  <figure>
-    <img
-      src={fTwo}
-      alt="features pic" />
-  </figure>
-  <div className="card-body">
-    <h1 className='text-7xl text-orange-500  my-2 text-center'><GrDirections /></h1>
-  <h1 className='text-3xl font-bold text-[#fda400] '>Collaborative Grading</h1>
-   <p className='text-md text-white/90 mt-2'>Assignments can be graded by friends, encouraging peer evaluation .
-   </p>
-   <p className='text-md text-white/90 mt-2'>Feedback and grading reports are shared transparently.</p>
-  </div>
-</div>
-    </Slide>
-    {/* <!-- Feature 3 --> */}
-    <Slide direction="down" cascade>
-    <div className="card bg-base-100    image-full h-fit   shadow-xl">
-  <figure>
-    <img
-      src={fThree}
-      alt="features pic" />
-  </figure>
-  <div className="card-body">
-    <h1 className='text-7xl text-orange-500  my-2 text-center'><GiProgression /></h1>
-  <h1 className='text-3xl font-bold text-[#fda400] '>Progress Tracking</h1>
-   <p className='text-md text-white/90 mt-2'>View detailed progress dashboards showing completed and pending assignments .
-   </p>
-   <p className='text-md text-white/90 mt-2'>Real-time notifications for assignment deadlines and feedback updates.</p>
-  </div>
-    {/* <!-- Feature 4 --> */}
-</div>
-
-    </Slide>
-{/* feature 4 */}
-    <Slide direction="up" cascade>
-    <div className="card bg-base-100    image-full h-fit   shadow-xl">
-  <figure>
-    <img
-      src={fFour}
-      alt="features pic" />
-  </figure>
-  <div className="card-body">
-    <h1 className='text-7xl text-orange-500  my-2 text-center'><FaUsers /></h1>
-  <h1 className='text-3xl font-bold text-[#fda400] '>Discussion Forum</h1>
-   <p className='text-md text-white/90 mt-2'>Integrated chat or forum for each assignment to discuss challenges or collaborate on solutions.
-   </p>
-   <p className='text-md text-white/90 mt-2'>Supports multimedia sharing for effective communication.</p>
-  </div>
-</div>
-    </Slide>
-
-  {/* <!-- Feature 5 --> */}
-    <Slide direction="up" cascade>
-    <div className="card bg-base-100    image-full h-fit   shadow-xl">
-  <figure>
-    <img
-      src={fFive}
-      alt="features pic" />
-  </figure>
-  <div className="card-body">
-    <h1 className='text-7xl text-orange-500  my-2 text-center'><MdOutlineLeaderboard /></h1>
-  <h1 className='text-3xl font-bold text-[#fda400] '>Leaderboards </h1>
-   <p className='text-md text-white/90 mt-2'>Encourage healthy competition with leaderboards for top performers.
-   </p>
-   <p className='text-md text-white/90 mt-2'>Unlock badges and rewards for milestones like consistent grading.</p>
-  </div>
-    {/* <!-- Feature 6 --> */}
-</div>
-    </Slide>
-{/* features 6 */}
-    <Slide direction="up" cascade>
-    <div className="card bg-base-100    image-full h-fit   shadow-xl">
-  <figure>
-    <img
-      src={fSix}
-      alt="features pic" />
-  </figure>
-  <div className="card-body">
-    <h1 className='text-7xl text-orange-500  my-2 text-center'><FaPeopleGroup /></h1>
-  <h1 className='text-3xl font-bold text-[#fda400] '> Study Groups</h1>
-   <p className='text-md text-white/90 mt-2'>VCreate or join study groups based on interests, subjects, or goals.
-   </p>
-   <p className='text-md text-white/90 mt-2'>Set privacy options to make groups public, private, or invitation-only.</p>
-  </div>
-</div>
-    </Slide>
-  </div>
-</section>
-   </div>
+  
   )
 }
 
